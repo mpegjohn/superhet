@@ -14,7 +14,6 @@
 
 		<div id="upper_frequency">
 			Upper Freq: <input type="text" name="upperfreq">
-
 		</div>
 		<div id="lower_frequency">
 			Lower Freq: <input type="text" name="lowerfreq">
@@ -29,7 +28,8 @@
 			Tuning Cap lowest value: <input type="text" name="caplow">
 		</div>
 
-
+		
+		<input type="submit" value="Submit" />
 
 	</form>
 
