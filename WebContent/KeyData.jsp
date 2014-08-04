@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Superhet tracking calculator</title>
 </head>
 <body>
 
@@ -21,6 +21,12 @@
 		</div>
 		<div id="if_frequency">
 			IF Freq: <input type="text" name="iffreq">
+		</div>
+		<div id="cap_high">
+			Tuning Cap highest value: <input type="text" name="caphigh">
+		</div>
+		<div id="cap_low">
+			Tuning Cap lowest value: <input type="text" name="caplow">
 		</div>
 
 
