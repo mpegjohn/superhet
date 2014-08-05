@@ -10,7 +10,9 @@
 
 
 
-	<jsp:useBean id="myBean" class="student.Fred" scope="page"></jsp:useBean>
+	<jsp:useBean id="myBean" class="tracking.Tracking" scope="page">
+		<jsp:setProperty name="myBean" property="*" />
+	</jsp:useBean>
 
 	<form action="KeyData.jsp" method="post">
 
