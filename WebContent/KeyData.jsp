@@ -8,24 +8,26 @@
 </head>
 <body>
 
+
+
 	<jsp:useBean id="myBean" class="student.Fred" scope="page"></jsp:useBean>
 
 	<form action="KeyData.jsp" method="post">
 
 		<div id="upper_frequency">
-			Upper Freq: <input type="text" name="upperfreq">
+			Upper Freq: <input type="text" name="upperFreq">
 		</div>
 		<div id="lower_frequency">
-			Lower Freq: <input type="text" name="lowerfreq">
+			Lower Freq: <input type="text" name="lowerFreq">
 		</div>
 		<div id="if_frequency">
-			IF Freq: <input type="text" name="iffreq">
+			IF Freq: <input type="text" name="ifFreq">
 		</div>
 		<div id="cap_high">
-			Tuning Cap highest value: <input type="text" name="caphigh">
+			Tuning Cap highest value: <input type="text" name="capHigh">
 		</div>
 		<div id="cap_low">
-			Tuning Cap lowest value: <input type="text" name="caplow">
+			Tuning Cap lowest value: <input type="text" name="capLow">
 		</div>
 
 		
