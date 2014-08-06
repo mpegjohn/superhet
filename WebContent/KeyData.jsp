@@ -10,26 +10,36 @@
 
 
 
-	<jsp:useBean id="myBean" class="tracking.Tracking" scope="page">
+	<jsp:useBean id="myBean" class="tracking.Tracking" scope="request">
 		<jsp:setProperty name="myBean" property="*" />
 	</jsp:useBean>
 
-	<form action="KeyData.jsp" method="post">
+	<form action="Controller.jsp" method="post">
 
 		<div id="upper_frequency">
-			Upper Freq: <input type="text" name="upperFreq">
+			Upper Freq: <input type="text" name="upperFreq"
+			value="<jsp:getProperty property="upperFreq" name="myBean"/>"
+			>
 		</div>
 		<div id="lower_frequency">
-			Lower Freq: <input type="text" name="lowerFreq">
+			Lower Freq: <input type="text" name="lowerFreq"
+			value="<jsp:getProperty property="lowerFreq" name="myBean"/>"
+			>
 		</div>
 		<div id="if_frequency">
-			IF Freq: <input type="text" name="ifFreq">
+			IF Freq: <input type="text" name="ifFreq"
+			value="<jsp:getProperty property="ifFreq" name="myBean"/>"
+			>
 		</div>
 		<div id="cap_high">
-			Tuning Cap highest value: <input type="text" name="capHigh">
+			Tuning Cap highest value: <input type="text" name="capHigh"
+			value="<jsp:getProperty property="capHigh" name="myBean"/>"
+			>
 		</div>
 		<div id="cap_low">
-			Tuning Cap lowest value: <input type="text" name="capLow">
+			Tuning Cap lowest value: <input type="text" name="capLow"
+			value="<jsp:getProperty property="capLow" name="myBean"/>"
+			>
 		</div>
 
 		
