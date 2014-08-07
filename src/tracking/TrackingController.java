@@ -38,24 +38,17 @@ public class TrackingController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Tracking trackingBean = (Tracking)request.getSession().getAttribute("trackingBean");
-		
-		if(trackingBean == null)
-		{
-			RequestDispatcher rd = request.getRequestDispatcher("KeyData.jsp");
-			rd.forward(request, response);
-		}
-		else
-		{
-
+			double f1 = Double.parseDouble(request.getParameter("lowerFreq"));
+			double f2 = Double.parseDouble(request.getParameter("upperFreq"));
+			double capLow = Double.parseDouble(request.getParameter("capLow"));
+			double capHigh = Double.parseDouble(request.getParameter("capHigh"));
+			
 			// Calculation
 			// Third tracking frequency 
-			double f1 = trackingBean.getLowerFreq();
-			double f2 = trackingBean.getUpperFreq();
 			
 			double f3 = Math.sqrt(f2 * f1);
 			
-			double gmax = trackingBean.getCapHigh() - trackingBean.getCapLow();
+			double gmax = capHigh - capLow;
 			
 			double alpha = f2 / f1;
 			
@@ -63,9 +56,6 @@ public class TrackingController extends HttpServlet {
 			
 			double t = gmax /(alpha_sq - 1);
 			
-		}
-		
-		
 		
 	}
 

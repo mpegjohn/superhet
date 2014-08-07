@@ -8,41 +8,27 @@
 </head>
 <body>
 
-
-
-	<jsp:useBean id="trackingBean" class="tracking.Tracking" scope="session">
-		<jsp:setProperty name="trackingBean" property="*" />
-	</jsp:useBean>
-
-<%--
-	<form action="Controller.jsp" method="post"> 
- --%>
 	<form action="TrackingController" method="post"> 
- 
  
 		<div id="upper_frequency">
 			Upper Freq: <input type="text" name="upperFreq"
-			value="<jsp:getProperty property="upperFreq" name="trackingBean"/>"
+			
 			>
 		</div>
 		<div id="lower_frequency">
 			Lower Freq: <input type="text" name="lowerFreq"
-			value="<jsp:getProperty property="lowerFreq" name="trackingBean"/>"
 			>
 		</div>
 		<div id="if_frequency">
 			IF Freq: <input type="text" name="ifFreq"
-			value="<jsp:getProperty property="ifFreq" name="trackingBean"/>"
 			>
 		</div>
 		<div id="cap_high">
 			Tuning Cap highest value: <input type="text" name="capHigh"
-			value="<jsp:getProperty property="capHigh" name="trackingBean"/>"
 			>
 		</div>
 		<div id="cap_low">
 			Tuning Cap lowest value: <input type="text" name="capLow"
-			value="<jsp:getProperty property="capLow" name="trackingBean"/>"
 			>
 		</div>
 
