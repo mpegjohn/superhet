@@ -42,6 +42,7 @@ public class TrackingController extends HttpServlet {
 			double f2 = Double.parseDouble(request.getParameter("upperFreq"));
 			double capLow = Double.parseDouble(request.getParameter("capLow"));
 			double capHigh = Double.parseDouble(request.getParameter("capHigh"));
+			double ifFreq = Double.parseDouble(request.getParameter("ifFreq"));
 			
 			// Calculation
 			// Third tracking frequency 
@@ -54,8 +55,9 @@ public class TrackingController extends HttpServlet {
 			
 			double alpha_sq = Math.pow(alpha, 2);
 			
-			double t = gmax /(alpha_sq - 1);
-			
+			double T = gmax /(alpha_sq - 1);
+		
+			double L = 1/(T * (Math.pow(2 * Math.PI * f2)));
 		
 	}
 
