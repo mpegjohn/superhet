@@ -10,7 +10,7 @@
 
 
 
-	<jsp:useBean id="trackingBean" class="tracking.Tracking" scope="request">
+	<jsp:useBean id="trackingBean" class="tracking.Tracking" scope="session">
 		<jsp:setProperty name="trackingBean" property="*" />
 	</jsp:useBean>
 
