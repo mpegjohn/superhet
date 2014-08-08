@@ -7,8 +7,11 @@
 <title>Superhet tracking calculator</title>
 </head>
 <body>
+	<jsp:useBean id="trackingDataBean" scope="request" class="tracking.Tracking">
+		<jsp:setProperty name="trackingDataBean" property="*"/>
+	</jsp:useBean>
 
-	<form action="TrackingController" method="post"> 
+	<form action="Controller.jsp" method="post"> 
  
 		<div id="upper_frequency">
 			Upper Freq: <input type="text" name="upperFreq"

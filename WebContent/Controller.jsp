@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<jsp:useBean id="myBean" scope="request" class="tracking.Tracking">
-	<jsp:setProperty name="myBean" property="*" />
+<jsp:useBean id="trackingDataBean" scope="request" class="tracking.Tracking">
+	<jsp:setProperty name="trackingDataBean" property="*" />
 
 </jsp:useBean>
 
-<jsp:forward page="KeyData.jsp"></jsp:forward>
+<jsp:forward page="TrackingController"></jsp:forward>
