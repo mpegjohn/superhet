@@ -1,5 +1,6 @@
 package tracking;
 
+
 public class SignalCircuit {
 
 	private Tracking trackingData;
