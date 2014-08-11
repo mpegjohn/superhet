@@ -40,6 +40,9 @@ public class TrackingController extends HttpServlet {
 
 
 			Tracking tracking = (Tracking)  request.getAttribute("trackingDataBean");
+			
+			tracking.calculate();
+			
 		
 			double f1 = tracking.getLowerFreq();
 			double f2 = tracking.getUpperFreq();
