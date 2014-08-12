@@ -8,6 +8,7 @@ public class Tracking {
 	
 	public static final double pf = Math.pow(10, -12);
 	public static final double khz = Math.pow(10, 3);
+	public static final double mhz = Math.pow(10, 6);
 	public static final double uh = Math.pow(10, -6);
 	
 	private double upperFreq;
