@@ -20,7 +20,7 @@ public class Capacitor {
 	
 	public void addSerial(Capacitor cap)
 	{
-		this.value = (this.value * cap.getValue())/(this.value * cap.getValue());
+		this.value = (this.value * cap.getValue())/(this.value + cap.getValue());
 		
 	}
 }

@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import tracking.Tracking;
 
-public class TestTunedCircuit {
+public class TunedCircuitTest {
 
 	@Test
 	public void test() {
