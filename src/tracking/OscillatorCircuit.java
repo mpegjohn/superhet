@@ -108,4 +108,15 @@ public class OscillatorCircuit {
 		return R;
 	}
 	
+	public void calculateFo() {
+		
+		
+		
+	}
+	
+	public void calculateTotalCap() {
+		
+		
+		
+	}
 }
