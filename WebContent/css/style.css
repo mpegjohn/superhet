@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color: #F8F8F8;
+}
+
+h1 {
+	text-align: center;
+}
+
+label, input {
+    display: inline-block;
+    vertical-align: baseline;
+    width: 250px;
+}
+
+label {
+    color: #2D2D2D;
+    font-size: 15px;
+}
+
+form, input {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+form {
+    width: 600px;
+}
