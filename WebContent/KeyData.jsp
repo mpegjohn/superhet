@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Superhet tracking calculator</title>
 </head>
@@ -13,28 +14,18 @@
 
 	<form action="Controller.jsp" method="post"> 
  
-		<div id="upper_frequency">
-			Upper Freq: <input type="text" name="upperFreq"
-			
-			>
-		</div>
-		<div id="lower_frequency">
-			Lower Freq: <input type="text" name="lowerFreq"
-			>
-		</div>
-		<div id="if_frequency">
-			IF Freq: <input type="text" name="ifFreq"
-			>
-		</div>
-		<div id="cap_high">
-			Tuning Cap highest value: <input type="text" name="capHigh"
-			>
-		</div>
-		<div id="cap_low">
-			Tuning Cap lowest value: <input type="text" name="capLow"
-			>
-		</div>
-
+ 	<h1>Key tracking data</h1>
+ 
+		<label for="upper_frequency">Upper Frequency:</label>
+			<input type="text" name="upperFreq" id="upper_frequency"/>
+		<label for="lower_frequency">Lower Freq: </label>
+			<input type="text" name="lowerFreq" id="lower_frequency"/>
+		<label for="if_frequency">IF Freq:</label>
+			 <input type="text" name="ifFreq" id="if_frequency"/>
+		<label for="cap_high">Tuning Cap highest value:</label>
+			 <input type="text" name="capHigh" id="cap_high"/>
+		<label for="cap_low">Tuning Cap lowest value:</label>
+			 <input type="text" name="capLow" id="cap_low"/>
 		
 		<input type="submit" value="Submit" />
 
