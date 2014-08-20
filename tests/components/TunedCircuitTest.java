@@ -13,10 +13,11 @@ public class TunedCircuitTest {
 		double cap = 150 * Tracking.pf;
 		double ind = 100 * Tracking.uh;
 		
-		TunedCircuit tank = new TunedCircuit(ind, cap);
+		Capacitor capacitor = new Capacitor(cap);
+		
+		TunedCircuit tank = new TunedCircuit(ind, capacitor);
 		
 		assertEquals(1.299494*Tracking.mhz, tank.calculateResonance(), 1.0);
-		
 	}
 
 }
