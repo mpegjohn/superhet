@@ -11,17 +11,17 @@ public class PaddedTunedCircuitTest {
 	@Test
 	public void test() {
 		
-		Capacitor G = new Capacitor(432E-12);
-		Capacitor Tc = new Capacitor(53.7E12);
-		Capacitor P = new Capacitor(500E-12);
-		Capacitor Tl = new Capacitor(8E-12);
+		Capacitor G = new Capacitor(432*Tracking.pf);
+		Capacitor Tc = new Capacitor(53.7*Tracking.pf);
+		Capacitor P = new Capacitor(500*Tracking.pf);
+		Capacitor Tl = new Capacitor(8*Tracking.pf);
 		
 		
 		
-		PaddedTunedCircuit circuit = new PaddedTunedCircuit(103.9E-6, Tl, P, Tc, G);
+		PaddedTunedCircuit circuit = new PaddedTunedCircuit(103.9*Tracking.uh, Tl, P, Tc, G);
 		double fo = circuit.calculateResonance();
 		
-		assertEquals(985*Tracking.khz, fo, 1.0);
+		assertEquals(978.9*Tracking.khz, fo, 0.1*Tracking.khz);
 		
 	}
 
