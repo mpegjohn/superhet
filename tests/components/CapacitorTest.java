@@ -56,4 +56,30 @@ public class CapacitorTest {
 
 	}
 
+	@Test
+	public void padderTest2() {
+		/*
+		 * Consists of a 432pF tuning cap
+		 * Tc 53.7pF
+		 * P 500pF
+		 * Tl 8pF
+		 */
+		
+		Capacitor tuning = new Capacitor(432E-12);
+		
+		Capacitor tc = new Capacitor(53.7E-12);
+		
+		Capacitor p = new Capacitor(500E-12);
+		
+		Capacitor tl = new Capacitor(8E-12);
+		
+		
+		Capacitor totalCap = new Capacitor(tuning.getValue());
+		totalCap.addParallel(tc);
+		totalCap.addSerial(p);
+		totalCap.addParallel(tl);
+		assertEquals(254E-12, totalCap.getValue(), 1E-12);
+
+	}
+	
 }
