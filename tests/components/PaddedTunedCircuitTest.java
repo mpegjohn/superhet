@@ -16,8 +16,6 @@ public class PaddedTunedCircuitTest {
 		Capacitor P = new Capacitor(500*Tracking.pf);
 		Capacitor Tl = new Capacitor(8*Tracking.pf);
 		
-		
-		
 		PaddedTunedCircuit circuit = new PaddedTunedCircuit(103.9*Tracking.uh, Tl, P, Tc, G);
 		double fo = circuit.calculateResonance();
 		
