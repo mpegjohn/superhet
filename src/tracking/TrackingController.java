@@ -43,6 +43,11 @@ public class TrackingController extends HttpServlet {
 			
 			tracking.calculate();
 			
+			OscillatorCircuit osc = new OscillatorCircuit(tracking);
+			osc.calculate();
+			
+			SignalCircuit sig = new SignalCircuit(tracking);
+			
 		
 			double f1 = tracking.getLowerFreq();
 			double f2 = tracking.getUpperFreq();
