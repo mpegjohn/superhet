@@ -32,4 +32,22 @@ public class SignalCircuitTest {
 		assertEquals(192.2 * Tracking.uh, signal.getL(), 0.5 * Tracking.uh);
 	}
 
+	@Test
+	public void testResonance() {
+		
+		this.tracking.setCapHigh(432 * Tracking.pf);
+		this.tracking.setCapLow(12 * Tracking.pf);
+		this.tracking.setUpperFreq(1620 * Tracking.khz);
+		this.tracking.setLowerFreq(530 * Tracking.khz);
+		this.tracking.setIfFreq(455 * Tracking.khz);
+		this.tracking.calculate();
+		
+		SignalCircuit signal = new SignalCircuit(tracking);
+		
+		signal.calculate();
+		
+		assertEquals(523E+3, signal.calculateFo(1.0), 1E+3);
+		assertEquals(1.4550E+6, signal.calculateFo(0), 1E+3);
+	}
+	
 }
