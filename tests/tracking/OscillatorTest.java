@@ -37,4 +37,21 @@ public class OscillatorTest {
 		assertEquals(103.9* Tracking.uh, osc.getLo(), 0.1*Tracking.uh);
 
 	}
+	
+	@Test
+	public void testResonance() {
+		this.tracking.setCapHigh(432 * Tracking.pf);
+		this.tracking.setCapLow(12 * Tracking.pf);
+		this.tracking.setUpperFreq(1620 * Tracking.khz);
+		this.tracking.setLowerFreq(530 * Tracking.khz);
+		this.tracking.setIfFreq(455 * Tracking.khz);
+		this.tracking.calculate();
+		
+		OscillatorCircuit osc = new OscillatorCircuit(tracking);
+		
+		osc.calculate();
+		
+		assertEquals(985E+3, osc.calculateFo(1.0), 1E+3);
+		
+	}
 }

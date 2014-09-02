@@ -1,9 +1,15 @@
 package tracking;
 
+import components.Capacitor;
+import components.PaddedTunedCircuit;
+
 public class OscillatorCircuit {
 
 	private Tracking trackingData;
 
+	/***
+	 * Stray capacitance
+	 */
 	private final double Tl = 8 * Tracking.pf;
 	
 	private double beta;
@@ -108,15 +114,21 @@ public class OscillatorCircuit {
 		return R;
 	}
 	
-	public void calculateFo() {
+	public double calculateFo(double percentRotation) {
+	
+		Capacitor Tl = new Capacitor(this.Tl);
+		Capacitor P = new Capacitor(this.P);
+		Capacitor Tc = new Capacitor(this.Tc);
 		
+		double actualCap = (percentRotation * (this.trackingData.getCapHigh() - this.trackingData.getCapLow())) + this.trackingData.getCapLow();
 		
+		Capacitor G = new Capacitor(actualCap);
 		
+		PaddedTunedCircuit circuit = new PaddedTunedCircuit(this.Lo, Tl, P, Tc, G);
+		
+		double resFreq = circuit.calculateResonance();
+		
+		return resFreq;
 	}
 	
-	public void calculateTotalCap() {
-		
-		
-		
-	}
 }
