@@ -51,8 +51,8 @@ public class OscillatorTest {
 		
 		osc.calculate();
 		
-		assertEquals(979E+3, osc.calculateFo(1.0), 1E+3);
+		assertEquals(985E+3, osc.calculateFo(1.0), 1E+3);
 		
-		assertEquals(1.92E+6, osc.calculateFo(0), 1E+3);
+		assertEquals(2.075E+6, osc.calculateFo(0), 5E+3);
 	}
 }

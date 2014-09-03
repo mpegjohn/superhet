@@ -46,8 +46,8 @@ public class SignalCircuitTest {
 		
 		signal.calculate();
 		
-		assertEquals(523E+3, signal.calculateFo(1.0), 1E+3);
-		assertEquals(1.4550E+6, signal.calculateFo(0), 1E+3);
+		assertEquals(530E+3, signal.calculateFo(1.0), 1E+3);
+		assertEquals(1.62E+6, signal.calculateFo(0), 1E+3);
 	}
 	
 }

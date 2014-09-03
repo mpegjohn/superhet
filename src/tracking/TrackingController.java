@@ -3,11 +3,13 @@ package tracking;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.Session;
 
@@ -47,29 +49,31 @@ public class TrackingController extends HttpServlet {
 			osc.calculate();
 			
 			SignalCircuit sig = new SignalCircuit(tracking);
+			sig.calculate();
 			
+			double signalFo[] = new double[100];
+			double oscFo[] = new double[100];
+			double trackError[] = new double[100];
+			
+			for(int i = 0; i < 100; i++)
+			{
+				double rotation = (double) i/100.0;
+				signalFo[i] = sig.calculateFo(rotation);
+				oscFo[i] = osc.calculateFo(rotation);
+				
+				trackError[i] = oscFo[i] - signalFo[i] - tracking.getIfFreq(); 
+			}
+			
+			Sweep sweep = new Sweep();
+			sweep.setOscFo(oscFo);
+			sweep.setSignalFo(signalFo);
+			sweep.setTrackError(trackError);
+
 		
-			double f1 = tracking.getLowerFreq();
-			double f2 = tracking.getUpperFreq();
-			double capLow = tracking.getCapLow();
-			double capHigh = tracking.getCapHigh();
-			double ifFreq = tracking.getIfFreq();
-			
-			// Calculation
-			// Third tracking frequency 
-			
-			double f3 = Math.sqrt(f2 * f1);
-			
-			double gmax = capHigh - capLow;
-			
-			double alpha = f2 / f1;
-			
-			double alpha_sq = Math.pow(alpha, 2);
-			
-			double T = gmax /(alpha_sq - 1);
-		
-			double L = 1/(T * (Math.pow((2 * Math.PI * f2),2)));
-		
+			HttpSession session = request.getSession();
+			session.setAttribute("sweepData", sweep);
+			RequestDispatcher rd = request.getRequestDispatcher("showSweep.jsp");
+			rd.forward(request, response);
 	}
 
 	/**

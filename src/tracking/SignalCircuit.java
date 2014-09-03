@@ -38,7 +38,7 @@ public class SignalCircuit {
 		double actualCap = (percentRotation * (this.trackingData.getCapHigh() - this.trackingData.getCapLow())) + this.trackingData.getCapLow();
 		
 		Capacitor G = new Capacitor(actualCap);
-		Capacitor T = new Capacitor(this.T);
+		Capacitor T = new Capacitor(this.T - this.trackingData.getCapLow());
 		
 		G.addParallel(T);
 		

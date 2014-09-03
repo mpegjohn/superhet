@@ -118,7 +118,7 @@ public class OscillatorCircuit {
 	
 		Capacitor Tl = new Capacitor(this.Tl);
 		Capacitor P = new Capacitor(this.P);
-		Capacitor Tc = new Capacitor(this.Tc);
+		Capacitor Tc = new Capacitor(this.Tc - this.trackingData.getCapLow());
 		
 		double actualCap = (percentRotation * (this.trackingData.getCapHigh() - this.trackingData.getCapLow())) + this.trackingData.getCapLow();
 		
