@@ -13,10 +13,26 @@
 	<jsp:useBean id="sweepData" scope="session" class="tracking.Sweep">
 	</jsp:useBean>
 
-	<c:forEach items="${sweepData.signalFo}" var="osc">
+<table>
+	<tr>
+		<th>Oscillator</th>
+		<th>Signal</th>
+		<th>Error</th>
+	</tr>
+	
+	<c:forEach begin="0" end="100" step="1" var="i">
+		<tr>
+			<td>"${sweepData.oscFo[i]}"</td>
+			<td>"${sweepData.signalFo[i]}"</td>
+			<td>"${sweepData.trackError[i]}"</td>
+	    </tr>
+	</c:forEach>
+</table>
+<%-- 
+	<c:forEach items="${sweepData.trackError}" var="osc">
 		Osc "${osc}" <br/>
 	</c:forEach>
-
+--%>
 
 </body>
 </html>

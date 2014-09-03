@@ -3,15 +3,12 @@ package tracking;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import org.apache.catalina.Session;
 
 import tracking.Tracking;
 
@@ -61,7 +58,7 @@ public class TrackingController extends HttpServlet {
 				signalFo[i] = sig.calculateFo(rotation);
 				oscFo[i] = osc.calculateFo(rotation);
 				
-				trackError[i] = oscFo[i] - signalFo[i] - tracking.getIfFreq(); 
+				trackError[i] = (oscFo[i] - signalFo[i]) - tracking.getIfFreq(); 
 			}
 			
 			Sweep sweep = new Sweep();
