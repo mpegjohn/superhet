@@ -9,13 +9,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- 
+
 	<jsp:useBean id="sweepData" scope="session" class="tracking.Sweep">
 	</jsp:useBean>
---%>
 
-	<c:forEach items="${sweepData.oscFo}" var="osc">
-		Osc ${osc"} <br/>
+	<c:forEach items="${sweepData.signalFo}" var="osc">
+		Osc "${osc}" <br/>
 	</c:forEach>
 
 
