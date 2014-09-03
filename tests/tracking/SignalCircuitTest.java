@@ -17,11 +17,11 @@ public class SignalCircuitTest {
 	@Test
 	public void testCalculate() {
 		
-		this.tracking.setCapHigh(432 * Tracking.pf);
-		this.tracking.setCapLow(12 * Tracking.pf);
-		this.tracking.setUpperFreq(1620 * Tracking.khz);
-		this.tracking.setLowerFreq(530 * Tracking.khz);
-		this.tracking.setIfFreq(455 * Tracking.khz);
+		this.tracking.setCapHigh(432);
+		this.tracking.setCapLow(12);
+		this.tracking.setUpperFreq(1620);
+		this.tracking.setLowerFreq(530);
+		this.tracking.setIfFreq(455);
 		this.tracking.calculate();
 		
 		SignalCircuit signal = new SignalCircuit(tracking);
@@ -35,11 +35,11 @@ public class SignalCircuitTest {
 	@Test
 	public void testResonance() {
 		
-		this.tracking.setCapHigh(432 * Tracking.pf);
-		this.tracking.setCapLow(12 * Tracking.pf);
-		this.tracking.setUpperFreq(1620 * Tracking.khz);
-		this.tracking.setLowerFreq(530 * Tracking.khz);
-		this.tracking.setIfFreq(455 * Tracking.khz);
+		this.tracking.setCapHigh(432);
+		this.tracking.setCapLow(12);
+		this.tracking.setUpperFreq(1620);
+		this.tracking.setLowerFreq(530);
+		this.tracking.setIfFreq(455);
 		this.tracking.calculate();
 		
 		SignalCircuit signal = new SignalCircuit(tracking);

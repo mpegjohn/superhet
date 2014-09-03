@@ -6,10 +6,10 @@ public class Tracking {
 		
 	}
 	
-	public static final double pf = Math.pow(10, -12);
-	public static final double khz = Math.pow(10, 3);
-	public static final double mhz = Math.pow(10, 6);
-	public static final double uh = Math.pow(10, -6);
+	public static final double pf = 1E-12;
+	public static final double khz = 1E+3;
+	public static final double mhz = 1E+6;
+	public static final double uh = 1E-6;
 	
 	private double upperFreq;
 	private double lowerFreq;
@@ -27,31 +27,31 @@ public class Tracking {
 		return upperFreq;
 	}
 	public void setUpperFreq(double upperFreq) {
-		this.upperFreq = upperFreq;
+		this.upperFreq = upperFreq * khz;
 	}
 	public double getLowerFreq() {
 		return lowerFreq;
 	}
 	public void setLowerFreq(double lowerFreq) {
-		this.lowerFreq = lowerFreq;
+		this.lowerFreq = lowerFreq * khz;
 	}
 	public double getIfFreq() {
 		return ifFreq;
 	}
 	public void setIfFreq(double ifFreq) {
-		this.ifFreq = ifFreq;
+		this.ifFreq = ifFreq * khz;
 	}
 	public double getCapHigh() {
 		return capHigh;
 	}
 	public void setCapHigh(double capHigh) {
-		this.capHigh = capHigh;
+		this.capHigh = capHigh * pf;
 	}
 	public double getCapLow() {
 		return capLow;
 	}
 	public void setCapLow(double capLow) {
-		this.capLow = capLow;
+		this.capLow = capLow * pf;
 	}
 	
 	public double getF3() {
