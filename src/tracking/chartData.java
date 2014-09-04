@@ -37,7 +37,7 @@ public class chartData extends HttpServlet {
 		Sweep sweepData = (Sweep) session.getAttribute("sweepData");
 		
 		ObjectMapper mapper = new ObjectMapper();
-		
+	
 		response.setContentType("application/json");
 		
 		PrintWriter out = response.getWriter();
