@@ -12,6 +12,8 @@
 <body>
 	<script
 		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/javascript/Chart.min.js"></script>
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
 
