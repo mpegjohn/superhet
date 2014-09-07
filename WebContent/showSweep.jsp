@@ -14,45 +14,7 @@
 		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/javascript/Chart.min.js"></script>
 	
-	<script type="text/javascript">
-	
-	var data = {
-//		    labels: ["January", "February", "March", "April", "May", "June", "July"],
-		    datasets: [
-		        {
-		            label: "My First dataset",
-		            fillColor: "rgba(220,220,220,0.2)",
-		            strokeColor: "rgba(220,220,220,1)",
-		            pointColor: "rgba(220,220,220,1)",
-		            pointStrokeColor: "#fff",
-		            pointHighlightFill: "#fff",
-		            pointHighlightStroke: "rgba(220,220,220,1)",
-//		            data: [65, 59, 80, 81, 56, 55, 40]
-		        }
-		    ]
-		};
-	
-	function update() {
-		// Get context with jQuery - using jQuery's .get() method.
-		var ctx = $("#trackingErrorChart").get(0).getContext("2d");
-		// This will get the first returned node in the jQuery collection.
-		var lineChart = new Chart(ctx).Line(data);		
-	};
-	
-		$(document).ready(function() {
-
-			$.getJSON("chartData", function(jsonData) {
-				data.labels = jsonData.signalFo;
-				data.datasets[0].data = jsonData.trackError;
-				update();
-			});
-
-			
-			
-
-			
-		});
-	</script>
+	<script src="${pageContext.request.contextPath}/javascript/tracking.js"></script>
 
 	<jsp:useBean id="sweepData" scope="session" class="tracking.Sweep">
 	</jsp:useBean>
