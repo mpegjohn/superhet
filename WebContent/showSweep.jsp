@@ -4,22 +4,40 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/jquery.jqplot.css" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<script
 		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<%-- 
 	<script src="${pageContext.request.contextPath}/javascript/Chart.min.js"></script>
-	
+--%>
+	<script
+		src="${pageContext.request.contextPath}/javascript/jquery.jqplot.js"></script>
+
 	<script src="${pageContext.request.contextPath}/javascript/tracking.js"></script>
 
+
+<%--
+	<script type="text/javascript">
+		$(document).ready(
+				function() {
+					var plot1 = $.jqplot('chartdiv', [ [ 3, 7, 9, 1, 4, 6, 8, 2, 5 ] ]);
+				});
+	</script>
+ --%>
 	<jsp:useBean id="sweepData" scope="session" class="tracking.Sweep">
 	</jsp:useBean>
 
-<canvas id="trackingErrorChart" width="800" height="400"></canvas>
+	<div id="chartdiv" style="height: 400px; width: 300px;"></div>
+
 
 	<table>
 		<tr>

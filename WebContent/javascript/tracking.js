@@ -40,9 +40,12 @@
 		$(document).ready(function() {
 
 			$.getJSON("chartData", function(jsonData) {
-				data.labels = jsonData.signalFo;
-				data.datasets[0].data = jsonData.trackError;
-				update();
+				//data.labels = jsonData.signalFo;
+				//data.datasets[0].data = jsonData.trackError;
+				//update();
+				
+				var dataArray = createDataArray(jsonData.signalFo, jsonData.trackError);
+				var plot1 = $.jqplot('chartdiv', [dataArray]);
 			});
 
 			
