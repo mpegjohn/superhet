@@ -16,27 +16,17 @@
 <body>
 	<script
 		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<%-- 
-	<script src="${pageContext.request.contextPath}/javascript/Chart.min.js"></script>
---%>
+
 	<script
 		src="${pageContext.request.contextPath}/javascript/jquery.jqplot.js"></script>
 
 	<script src="${pageContext.request.contextPath}/javascript/tracking.js"></script>
 
 
-<%--
-	<script type="text/javascript">
-		$(document).ready(
-				function() {
-					var plot1 = $.jqplot('chartdiv', [ [ 3, 7, 9, 1, 4, 6, 8, 2, 5 ] ]);
-				});
-	</script>
- --%>
 	<jsp:useBean id="sweepData" scope="session" class="tracking.Sweep">
 	</jsp:useBean>
 
-	<div id="chartdiv" style="height: 400px; width: 300px;"></div>
+	<div id="chartdiv" style="height: 400px; width: 800px;"></div>
 
 
 	<table>
