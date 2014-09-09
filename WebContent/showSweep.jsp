@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
 
@@ -33,15 +34,18 @@
 	<div id="components">
 		<div id="Oscillator">
 			<h3>Oscillator components</h3>
-			Inductor: ${sweepData.getOsc().getLo()}<br/>
-			Padder: ${sweepData.getOsc().getP()}<br/>
-			Tc: ${sweepData.getOsc().getTc()}<br/>
-			Tl: ${sweepData.getOsc().getTl()}<br/>
+			<p>Inductor: <fmt:formatNumber 
+			value="${sweepData.getOsc().getLo()}" 
+			pattern="###.###E0" 
+			type="number"></fmt:formatNumber></p>
+			<p>Padder: ${sweepData.getOsc().getP()}</p>
+			<p>Tc: ${sweepData.getOsc().getTc()}</p>
+			<p>Tl: ${sweepData.getOsc().getTl()}</p>
 		</div>
 		<div id="signals">
 			<h3>Signal components</h3>
-			Inductor: ${sweepData.getSig().getL()}<br/>
-			T: ${sweepData.getSig().getT()}<br/>
+			<p>Inductor: ${sweepData.getSig().getL()}</p>
+			<p>T: ${sweepData.getSig().getT()}</p>
 		</div>
 	</div>
 
