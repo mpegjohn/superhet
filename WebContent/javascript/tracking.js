@@ -28,7 +28,7 @@ function createDataArray(x, y) {
 	var xyArray = new Array();
 
 	for (var i = 0; i < x.length; i++) {
-		var temp = [ x[i], ((y[i] + 455000.0) / 1000.0) ];
+		var temp = [ x[i], y[i] ];
 		xyArray.push(temp);
 	}
 	;

@@ -24,6 +24,10 @@ public class OscillatorCircuit {
 	private double Lo;
 	
 
+	public double getTl() {
+		return Tl;
+	}
+	
 	public double getP() {
 		return P;
 	}

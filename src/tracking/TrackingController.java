@@ -65,6 +65,8 @@ public class TrackingController extends HttpServlet {
 			sweep.setOscFo(oscFo);
 			sweep.setSignalFo(signalFo);
 			sweep.setTrackError(trackError);
+			sweep.setOsc(osc);
+			sweep.setSig(sig);
 
 		
 			HttpSession session = request.getSession();

@@ -30,7 +30,23 @@
 
 	<div id="chartdiv" style="height: 400px; width: 800px;"></div>
 
+	<div id="components">
+		<div id="Oscillator">
+			<h3>Oscillator components</h3>
+			Inductor: ${sweepData.getOsc().getLo()}<br/>
+			Padder: ${sweepData.getOsc().getP()}<br/>
+			Tc: ${sweepData.getOsc().getTc()}<br/>
+			Tl: ${sweepData.getOsc().getTl()}<br/>
+		</div>
+		<div id="signals">
+			<h3>Signal components</h3>
+			Inductor: ${sweepData.getSig().getL()}<br/>
+			T: ${sweepData.getSig().getT()}<br/>
+		</div>
+	</div>
 
+
+<%-- 
 	<table>
 		<tr>
 			<th>Oscillator</th>
@@ -46,7 +62,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<%-- 
+	
 	<c:forEach items="${sweepData.trackError}" var="osc">
 		Osc "${osc}" <br/>
 	</c:forEach>

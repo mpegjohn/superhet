@@ -6,6 +6,21 @@ public class Sweep {
 	private double oscFo[] = new double[100];
 	private double trackError[] = new double[100];
 	
+	private OscillatorCircuit osc;
+	private SignalCircuit sig;
+	
+	public OscillatorCircuit getOsc() {
+		return osc;
+	}
+	public void setOsc(OscillatorCircuit osc) {
+		this.osc = osc;
+	}
+	public SignalCircuit getSig() {
+		return sig;
+	}
+	public void setSig(SignalCircuit sig) {
+		this.sig = sig;
+	}
 	public double[] getSignalFo() {
 		return signalFo;
 	}
