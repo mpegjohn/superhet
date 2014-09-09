@@ -64,11 +64,18 @@ $(document).ready(
 							label : "Error Hz"
 						}
 					},
+					series : [ {
+						shadow : false,
+						markerOptions : {
+							show : false
+						}
+					} ],
 					cursor : {
 						show : true,
 						zoom : true,
 						tooltipLocation : 'sw'
 					}
+
 				});
 			});
 
