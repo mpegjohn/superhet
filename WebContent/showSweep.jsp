@@ -20,8 +20,10 @@
 	<script
 		src="${pageContext.request.contextPath}/javascript/jquery.jqplot.js"></script>
 
-	<script src="${pageContext.request.contextPath}/javascript/tracking.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/javascript/plugins/jqplot.cursor.js"></script>
 
+	<script src="${pageContext.request.contextPath}/javascript/tracking.js"></script>
 
 	<jsp:useBean id="sweepData" scope="session" class="tracking.Sweep">
 	</jsp:useBean>
