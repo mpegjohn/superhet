@@ -38,39 +38,40 @@
 			value="${sweepData.getOsc().getLo()}" 
 			pattern="###.###E0" 
 			type="number"></fmt:formatNumber></p>
-			<p>Padder: ${sweepData.getOsc().getP()}</p>
-			<p>Tc: ${sweepData.getOsc().getTc()}</p>
-			<p>Tl: ${sweepData.getOsc().getTl()}</p>
+			<p>Padder: <fmt:formatNumber
+			value="${sweepData.getOsc().getP()}"
+			pattern="###.###E0" 
+			type="number"></fmt:formatNumber></p>
+			<p>Tc: <fmt:formatNumber
+			value="${sweepData.getOsc().getTc()}"
+			pattern="###.###E0" 
+			type="number"></fmt:formatNumber></p>
+			<p>Tl: <fmt:formatNumber
+			value="${sweepData.getOsc().getTl()}"
+			pattern="###.###E0" 
+			type="number"></fmt:formatNumber></p>
 		</div>
 		<div id="signals">
 			<h3>Signal components</h3>
-			<p>Inductor: ${sweepData.getSig().getL()}</p>
-			<p>T: ${sweepData.getSig().getT()}</p>
+			<p>Inductor: <fmt:formatNumber
+			value="${sweepData.getSig().getL()}"
+			pattern="###.###E0" 
+			type="number"></fmt:formatNumber></p>
+			<p>T:  <fmt:formatNumber
+			value="${sweepData.getSig().getT()}"
+			pattern="###.###E0" 
+			type="number"></fmt:formatNumber></p>
 		</div>
 	</div>
 
-
-<%-- 
-	<table>
-		<tr>
-			<th>Oscillator</th>
-			<th>Signal</th>
-			<th>Error</th>
-		</tr>
-
-		<c:forEach begin="0" end="100" step="1" var="i">
-			<tr>
-				<td>"${sweepData.oscFo[i]}"</td>
-				<td>"${sweepData.signalFo[i]}"</td>
-				<td>"${sweepData.trackError[i]}"</td>
-			</tr>
-		</c:forEach>
-	</table>
+	<button>Show details</button>
+	<div id="details">
+		
+		<p>f3=${sweepData.getTrack().getF3()}</p>
 	
-	<c:forEach items="${sweepData.trackError}" var="osc">
-		Osc "${osc}" <br/>
-	</c:forEach>
---%>
+	
+	</div>
+
 
 </body>
 </html>

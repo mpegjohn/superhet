@@ -8,7 +8,14 @@ public class Sweep {
 	
 	private OscillatorCircuit osc;
 	private SignalCircuit sig;
+	private Tracking track;
 	
+	public Tracking getTrack() {
+		return track;
+	}
+	public void setTrack(Tracking track) {
+		this.track = track;
+	}
 	public OscillatorCircuit getOsc() {
 		return osc;
 	}
