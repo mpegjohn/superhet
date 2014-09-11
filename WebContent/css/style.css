@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+#details {
+	display: none;
+}
+
 body {
 	background-color: #F8F8F8;
 }
@@ -28,6 +32,3 @@ form {
     width: 600px;
 }
 
-#details {
-	visibility: none;	
-}

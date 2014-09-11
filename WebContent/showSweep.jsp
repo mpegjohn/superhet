@@ -65,6 +65,7 @@
 	</div>
 
 	<button>Show details</button>
+	
 	<div id="details">
 		
 		<p>f3=${sweepData.getTrack().getF3()}</p>
