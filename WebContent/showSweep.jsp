@@ -69,8 +69,8 @@
 	<div id="details">
 		
 		<p>f3=${sweepData.getTrack().getF3()}</p>
-	
-	
+		<p>Gmax=${sweepData.getTrack().getGmax()}</p>
+		<p>&alpha;=${sweepData.getTrack().getAlpha()}</p>
 	</div>
 
 
