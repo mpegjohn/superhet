@@ -68,9 +68,25 @@
 	
 	<div id="details">
 		
-		<p>f3=${sweepData.getTrack().getF3()}</p>
-		<p>Gmax=${sweepData.getTrack().getGmax()}</p>
+		<p>f<sub>3</sub>=${sweepData.getTrack().getF3()}</p>
+		<p>G<sub>max</sub>=${sweepData.getTrack().getGmax()}</p>
 		<p>&alpha;=${sweepData.getTrack().getAlpha()}</p>
+		
+		<p>P<sub>min</sub>=<fmt:formatNumber
+		value="${sweepData.getOsc().getPmin()}"
+		pattern="###.###E0" 
+		type="number">
+		</fmt:formatNumber>
+		</p>
+		<p>P<sub>max</sub>=<fmt:formatNumber
+		value="${sweepData.getOsc().getPmax()}"
+		pattern="###.###E0" 
+		type="number">
+		</fmt:formatNumber>
+		</p>
+		<p>Tl<sub>max</sub>=${sweepData.getOsc().getTlmax()}</p>
+		<p>R=${sweepData.getOsc().getR()}</p>
+		<p>&beta;=${sweepData.getOsc().getBeta()}</p>
 	</div>
 
 
