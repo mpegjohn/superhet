@@ -53,6 +53,25 @@ function createTrackingChart(jsonData) {
 
 }
 
+function calcUnitMult(number) {
+
+	if((number >=1E-9) && (number < 1E-6))
+	{
+        	return "p";
+	}
+
+	if((number >=1E-6) && (number < 1E-3))
+	{
+        	return "u";
+	}
+
+	if((number >=1E-3) && (number < 1))
+	{
+        	return "m";
+	}
+
+}
+
 $(document).ready(function() {
 
 	$.getJSON("chartData", function(jsonData) {
