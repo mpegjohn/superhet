@@ -34,7 +34,7 @@
 	<div id="components">
 		<div id="Oscillator">
 			<h3>Oscillator components</h3>
-			<p>Inductor: <fmt:formatNumber 
+			<p class="inductor">Inductor: <fmt:formatNumber 
 			value="${sweepData.getOsc().getLo()}" 
 			pattern="###.###E0" 
 			type="number"></fmt:formatNumber></p>
@@ -53,7 +53,7 @@
 		</div>
 		<div id="signals">
 			<h3>Signal components</h3>
-			<p>Inductor: <fmt:formatNumber
+			<p class="inductor">Inductor: <fmt:formatNumber
 			value="${sweepData.getSig().getL()}"
 			pattern="###.###E0" 
 			type="number"></fmt:formatNumber></p>
