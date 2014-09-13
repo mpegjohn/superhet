@@ -24,6 +24,10 @@
 	<script
 		src="${pageContext.request.contextPath}/javascript/plugins/jqplot.cursor.js"></script>
 
+	<script
+		src="${pageContext.request.contextPath}/javascript/quantities.js"></script>
+
+
 	<script src="${pageContext.request.contextPath}/javascript/tracking.js"></script>
 
 	<jsp:useBean id="sweepData" scope="session" class="tracking.Sweep">
@@ -38,15 +42,15 @@
 			value="${sweepData.getOsc().getLo()}" 
 			pattern="###.###E0" 
 			type="number"></fmt:formatNumber></p>
-			<p>Padder: <fmt:formatNumber
+			<p class="capacitor">Padder: <fmt:formatNumber
 			value="${sweepData.getOsc().getP()}"
 			pattern="###.###E0" 
 			type="number"></fmt:formatNumber></p>
-			<p>Tc: <fmt:formatNumber
+			<p class="capacitor">Tc: <fmt:formatNumber
 			value="${sweepData.getOsc().getTc()}"
 			pattern="###.###E0" 
 			type="number"></fmt:formatNumber></p>
-			<p>Tl: <fmt:formatNumber
+			<p class="capacitor">Tl: <fmt:formatNumber
 			value="${sweepData.getOsc().getTl()}"
 			pattern="###.###E0" 
 			type="number"></fmt:formatNumber></p>
@@ -57,7 +61,7 @@
 			value="${sweepData.getSig().getL()}"
 			pattern="###.###E0" 
 			type="number"></fmt:formatNumber></p>
-			<p>T:  <fmt:formatNumber
+			<p class="capacitor">T:  <fmt:formatNumber
 			value="${sweepData.getSig().getT()}"
 			pattern="###.###E0" 
 			type="number"></fmt:formatNumber></p>

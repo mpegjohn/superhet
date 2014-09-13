@@ -53,23 +53,25 @@ function createTrackingChart(jsonData) {
 
 }
 
-function calcUnitMult(number) {
-
-	if((number >=1E-9) && (number < 1E-6))
-	{
-        	return "p";
+function calcUnitMult(number, unit) {
+	
+	var mults = ['f', 'p', 'u', 'm'];
+	
+	var mult = "";
+	
+	while(number < 1.0) {
+		number *= 1000;
+		mult = mults.pop();
 	}
-
-	if((number >=1E-6) && (number < 1E-3))
-	{
-        	return "u";
-	}
-
-	if((number >=1E-3) && (number < 1))
-	{
-        	return "m";
-	}
-
+	
+	var formattedNumber = number + " " + mult + unit;
+	
+	//console.log("formatted number: " + formattedNumber);
+	
+	var ind = Qty(formattedNumber);
+	//console.log(ind);
+	
+	return ind.toPrec(0.01).toString();
 }
 
 $(document).ready(function() {
@@ -83,27 +85,26 @@ $(document).ready(function() {
 	});
 	
 	$(".inductor").text(function(i, text) {
-			console.log("i is: " + i + " text is:" + text);
+			//console.log("i is: " + i + " text is:" + text);
 			var number = text.match(/-?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)?/);
-			console.log("number is: " + number);
+
+			var num = calcUnitMult(number, 'H');
 			
-			var uH = new RegExp("E-6");
-			var mH = new RegExp("E-3");
+			var type = text.match(/^.*:/);
 			
-			if(uH.test(number)) {
-				
-				number = number * 1E+6;
-				
-				number = number + "uH";
-			}
-			else if(mH.test(number)) {
-				
-				number = number * 1E+3;
-				
-				number = number + "mH";
-			}
+			return (type + " " + num);
 			
-			
-	});  
+	});
+	$(".capacitor").text(function(i, text) {
+		//console.log("i is: " + i + " text is:" + text);
+		var number = text.match(/-?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)?/);
+
+		var num = calcUnitMult(number, 'F');
+		
+		var type = text.match(/^.*:/);
+		
+		return (type + " " + num);
+
+});
 
 });
