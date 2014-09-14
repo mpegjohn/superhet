@@ -55,14 +55,14 @@ function createTrackingChart(jsonData) {
 
 function calcUnitMult(number, unit) {
 	
-	var mults = ['f', 'p', 'u', 'm'];
+	var mults = ['p', 'n', 'u', 'm'];
 	
 	var mult = "";
 	
 	while(number < 1.0) {
 		number *= 1000;
 		mult = mults.pop();
-	}
+	};
 	
 	var formattedNumber = number + " " + mult + unit;
 	
