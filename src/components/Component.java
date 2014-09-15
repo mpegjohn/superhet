@@ -1,6 +1,5 @@
 package components;
 
-
 public class Component {
 
 	private String unit;
@@ -8,7 +7,7 @@ public class Component {
 	private String mult;
 	private String formattedNumber;
 
- public String getUnit() {
+	public String getUnit() {
 		return unit;
 	}
 
@@ -24,24 +23,24 @@ public class Component {
 		return formattedNumber;
 	}
 
-public  void calcUnitMult(double value, String unit) {
+	public void calcUnitMult(double value, String unit) {
 
-        String[] mults = {"m", "u", "n", "p"};
+		String[] mults = { "m", "u", "n", "p" };
 
-        String mult = "";
+		String mult = "";
 
-        int i = 0;
-        while(value < 1.0) {
-                value *= 1000;
-                mult = mults[i];
-                i++;
-        };
+		int i = 0;
+		while (value < 1.0) {
+			value *= 1000;
+			mult = mults[i];
+			i++;
+		}
 
-        formattedNumber =  String.format("%.2f $s%s",value, mult, unit);
+		formattedNumber = String.format("%.2f %s%s", value, mult, unit);
 
-        this.value = value;
-        this.unit = unit;
-        this.mult = mult;
-}
+		this.value = value;
+		this.unit = unit;
+		this.mult = mult;
+	}
 
 }

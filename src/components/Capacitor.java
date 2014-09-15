@@ -1,6 +1,6 @@
 package components;
 
-public class Capacitor {
+public class Capacitor extends Component {
 
 	double value;
 
