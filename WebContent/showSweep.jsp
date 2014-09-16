@@ -41,22 +41,22 @@
 			<p class="inductor">Inductor:  
 			${sweepData.getOsc().getLo().toString()} 
 			</p>
-			<p class="capacitor">Padder:
+			<p>Padder:
 			${sweepData.getOsc().getP().toString()}
 			</p>
-			<p class="capacitor">Tc:
+			<p>Tc:
 			${sweepData.getOsc().getTc().toString()}
 			</p>
-			<p class="capacitor">Tl:
+			<p>Tl:
 			${sweepData.getOsc().getTl().toString()}
 			</p>
 		</div>
 		<div id="signals">
 			<h3>Signal components</h3>
-			<p class="inductor">Inductor:
+			<p>Inductor:
 			${sweepData.getSig().getL().toString()}
 			</p>
-			<p class="capacitor">T:
+			<p>T:
 			${sweepData.getSig().getT().toString()}
 			</p>
 		</div>
