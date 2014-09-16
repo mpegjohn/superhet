@@ -2,18 +2,13 @@ package components;
 
 public class Component {
 
-	private String unit;
-	private double value;
+	protected double value;
+	
+	String unit;
+	
+	private double multipliedValue;
 	private String mult;
 	private String formattedNumber;
-
-	public String getUnit() {
-		return unit;
-	}
-
-	public double getValue() {
-		return value;
-	}
 
 	public String getMult() {
 		return mult;
@@ -23,24 +18,28 @@ public class Component {
 		return formattedNumber;
 	}
 
-	public void calcUnitMult(double value, String unit) {
+	public void calcUnitMult() {
 
 		String[] mults = { "m", "u", "n", "p" };
 
 		String mult = "";
 
+		this.multipliedValue = value;
+		
 		int i = 0;
-		while (value < 1.0) {
-			value *= 1000;
+		while (this.multipliedValue < 1.0) {
+			this.multipliedValue *= 1000;
 			mult = mults[i];
 			i++;
 		}
 
 		formattedNumber = String.format("%.2f %s%s", value, mult, unit);
 
-		this.value = value;
-		this.unit = unit;
 		this.mult = mult;
+	}
+	
+	public String toString() {
+		return formattedNumber;
 	}
 
 }

@@ -1,6 +1,7 @@
 package tracking;
 
 import components.Capacitor;
+import components.Inductor;
 import components.TunedCircuit;
 
 
@@ -11,15 +12,15 @@ public class SignalCircuit {
 	public SignalCircuit(Tracking trackingData) {
 		this.trackingData = trackingData;
 	}	
-	private double T;
-	private double L;
+	private Capacitor T;
+	private Inductor L;
 	
 
-	public double getT() {
+	public Capacitor getT() {
 		return T;
 	}
 
-	public double getL() {
+	public Inductor getL() {
 		return L;
 	}
 	
@@ -28,9 +29,9 @@ public class SignalCircuit {
 		// Third tracking frequency 
 		
 		
-		this.T = this.trackingData.getGmax() /(this.trackingData.getAlpha_sq() - 1);
+		this.T = new Capacitor(trackingData.getGmax() /(this.trackingData.getAlpha_sq() - 1));
 	
-		this.L = 1/(T * (Math.pow((2 * Math.PI * trackingData.getUpperFreq()),2)));
+		this.L = new Inductor(1/(T.getValue() * (Math.pow((2 * Math.PI * trackingData.getUpperFreq()),2))));
 	}
 
 	public double calculateFo(double percentRotation) {
@@ -38,7 +39,7 @@ public class SignalCircuit {
 		double actualCap = (percentRotation * (this.trackingData.getCapHigh() - this.trackingData.getCapLow())) + this.trackingData.getCapLow();
 		
 		Capacitor G = new Capacitor(actualCap);
-		Capacitor T = new Capacitor(this.T - this.trackingData.getCapLow());
+		Capacitor T = new Capacitor(this.T.getValue() - this.trackingData.getCapLow());
 		
 		G.addParallel(T);
 		

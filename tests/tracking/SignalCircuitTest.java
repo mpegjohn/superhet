@@ -28,8 +28,8 @@ public class SignalCircuitTest {
 		
 		signal.calculate();
 		
-		assertEquals(50.24 * Tracking.pf, signal.getT(), 0.2 * Tracking.pf);
-		assertEquals(192.2 * Tracking.uh, signal.getL(), 0.5 * Tracking.uh);
+		assertEquals(50.24 * Tracking.pf, signal.getT().getValue(), 0.2 * Tracking.pf);
+		assertEquals(192.2 * Tracking.uh, signal.getL().getValue(), 0.5 * Tracking.uh);
 	}
 
 	@Test
