@@ -14,8 +14,9 @@ public class TunedCircuitTest {
 		double ind = 100 * Tracking.uh;
 		
 		Capacitor capacitor = new Capacitor(cap);
+		Inductor inductor = new Inductor(ind);
 		
-		TunedCircuit tank = new TunedCircuit(ind, capacitor);
+		TunedCircuit tank = new TunedCircuit(inductor, capacitor);
 		
 		assertEquals(1.299494*Tracking.mhz, tank.calculateResonance(), 1.0);
 	}

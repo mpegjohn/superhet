@@ -1,6 +1,7 @@
 package tracking;
 
 import components.Capacitor;
+import components.Inductor;
 import components.PaddedTunedCircuit;
 
 public class OscillatorCircuit {
@@ -10,41 +11,41 @@ public class OscillatorCircuit {
 	/***
 	 * Stray capacitance
 	 */
-	private final double Tl = 8 * Tracking.pf;
+	private final Capacitor Tl = new Capacitor(8 * Tracking.pf);
 	
 	private double beta;
 	private double beta_sq;
 	private double R;
-	private double Pmax;
-	private double Tcmax;
-	private double Pmin;
-	private double Tlmax;
-	private double P;
-	private double Tc;
-	private double Lo;
+	private Capacitor Pmax;
+	private Capacitor Tcmax;
+	private Capacitor Pmin;
+	private Capacitor Tlmax;
+	private Capacitor P;
+	private Capacitor Tc;
+	private Inductor Lo;
 	
 
-	public double getTl() {
+	public Capacitor getTl() {
 		return Tl;
 	}
 	
-	public double getP() {
+	public Capacitor getP() {
 		return P;
 	}
 
-	public double getTc() {
+	public Capacitor getTc() {
 		return Tc;
 	}
 
-	public double getLo() {
+	public Inductor getLo() {
 		return Lo;
 	}
 
-	public double getPmin() {
+	public Capacitor getPmin() {
 		return Pmin;
 	}
 
-	public double getTlmax() {
+	public Capacitor getTlmax() {
 		return Tlmax;
 	}
 
@@ -60,11 +61,11 @@ public class OscillatorCircuit {
 		return R;
 	}
 
-	public double getPmax() {
+	public Capacitor getPmax() {
 		return Pmax;
 	}
 
-	public double getTcmax() {
+	public Capacitor getTcmax() {
 		return Tcmax;
 	}
 
@@ -78,21 +79,21 @@ public class OscillatorCircuit {
 		this.beta_sq = Math.pow(this.beta, 2);
 		this.R = calculateR();
 		
-		this.Pmax = this.trackingData.getGmax()/(this.R - 1);
-		this.Tcmax = this.trackingData.getGmax()/((this.R * this.beta_sq) -1 );
+		this.Pmax = new Capacitor(trackingData.getGmax()/(this.R - 1));
+		this.Tcmax = new Capacitor(trackingData.getGmax()/((this.R * this.beta_sq) -1 ));
 		
-		this.Pmin = this.Pmax - this.Tcmax;
+		this.Pmin = new Capacitor(this.Pmax.getValue() - this.Tcmax.getValue());
 		
-		this.Tlmax = this.Pmax * this.Tcmax/this.Pmin;
+		this.Tlmax = new Capacitor(this.Pmax.getValue() * this.Tcmax.getValue()/this.Pmin.getValue());
 		
-		this.P = this.Pmin + this.Tl;
-		this.Tc = this.Tcmax- this.Tl;
+		this.P = new Capacitor(this.Pmin.getValue() + this.Tl.getValue());
+		this.Tc = new Capacitor(this.Tcmax.getValue() - this.Tl.getValue());
 		
 		this.Lo = calculateLo();
 		
 	}
 
-	private double calculateLo() {
+	private Inductor calculateLo() {
 
 		/*
 		 * Lo = Pmin * Pmax/(Tcmax*p^2 *(w2 + wi)^2)
@@ -102,7 +103,7 @@ public class OscillatorCircuit {
 		double w2 =trackingData.getUpperFreq() * 2 *Math.PI;
 		double wi = trackingData.getIfFreq()  * 2 *Math.PI;
 		double w2wi_sq = Math.pow((w2 + wi), 2);
-		double Lo =  ((this.Pmin * this.Pmax)/this.Tcmax) * 1/(Math.pow(this.P,2) * w2wi_sq);
+		Inductor Lo = new Inductor(((this.Pmin.getValue() * this.Pmax.getValue())/this.Tcmax.getValue()) * 1/(Math.pow(this.P.getValue(),2) * w2wi_sq));
 		return Lo;
 	}
 
@@ -120,9 +121,7 @@ public class OscillatorCircuit {
 	
 	public double calculateFo(double percentRotation) {
 	
-		Capacitor Tl = new Capacitor(this.Tl);
-		Capacitor P = new Capacitor(this.P);
-		Capacitor Tc = new Capacitor(this.Tc - this.trackingData.getCapLow());
+		Capacitor Tc = new Capacitor(this.Tc.getValue() - this.trackingData.getCapLow());
 		
 		double actualCap = (percentRotation * (this.trackingData.getCapHigh() - this.trackingData.getCapLow())) + this.trackingData.getCapLow();
 		

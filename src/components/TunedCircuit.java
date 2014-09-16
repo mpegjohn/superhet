@@ -2,23 +2,23 @@ package components;
 
 public class TunedCircuit {
 
-	double inductance;
+	Inductor inductance;
 	Capacitor capacitance;
 
 	public TunedCircuit() {
 		
 	}
 	
-	public TunedCircuit(double inductance, Capacitor capacitance) {
+	public TunedCircuit(Inductor inductance, Capacitor capacitance) {
 		this.inductance = inductance;
 		this.capacitance = capacitance;
 	}
 	
-	public double getInductance() {
+	public Inductor getInductance() {
 		return inductance;
 	}
 
-	public void setInductance(double inductance) {
+	public void setInductance(Inductor inductance) {
 		this.inductance = inductance;
 	}
 
@@ -32,7 +32,7 @@ public class TunedCircuit {
 
 	public double calculateResonance()
 	{
-		double resonance = 1/(2*Math.PI* Math.sqrt(inductance * capacitance.getValue()));
+		double resonance = 1/(2*Math.PI* Math.sqrt(inductance.getValue() * capacitance.getValue()));
 		return resonance;
 	}
 }
