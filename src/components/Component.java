@@ -33,7 +33,7 @@ public class Component {
 			i++;
 		}
 
-		formattedNumber = String.format("%.2f %s%s", value, mult, unit);
+		formattedNumber = String.format("%.2f %s%s", multipliedValue, mult, unit);
 
 		this.mult = mult;
 	}

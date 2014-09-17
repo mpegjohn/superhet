@@ -35,7 +35,6 @@ public class OscillatorTest {
 		assertEquals(500.3* Tracking.pf, osc.getP().getValue(), 1*Tracking.pf);
 		assertEquals(53.7* Tracking.pf, osc.getTc().getValue(), 1*Tracking.pf);
 		assertEquals(103.9* Tracking.uh, osc.getLo().getValue(), 0.1*Tracking.uh);
-
 	}
 	
 	@Test
