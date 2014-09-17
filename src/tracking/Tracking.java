@@ -16,12 +16,14 @@ public class Tracking {
 	private double ifFreq;
 	private double capHigh;
 	private double capLow;
+	private double capStray; 
 	
 	private double f3;
 	private double gmax;
 	private double alpha;
 	private double alpha_sq;
 	private double alpha_sqrt;
+
 	
 	public double getUpperFreq() {
 		return upperFreq;
@@ -71,6 +73,12 @@ public class Tracking {
 		return alpha_sqrt;
 	}
 	
+	public double getCapStray() {
+		return capStray;
+	}
+	public void setCapStray(double capStray) {
+		this.capStray = capStray;
+	}
 	public void calculate() {
 		// Calculation
 		// Third tracking frequency 

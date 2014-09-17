@@ -11,7 +11,7 @@ public class OscillatorCircuit {
 	/***
 	 * Stray capacitance
 	 */
-	private final Capacitor Tl = new Capacitor(8 * Tracking.pf);
+	private Capacitor Tl;
 	
 	private double beta;
 	private double beta_sq;
@@ -75,6 +75,9 @@ public class OscillatorCircuit {
 	
 	
 	public void calculate() {
+		
+		this.Tl = new Capacitor(trackingData.getCapStray() * Tracking.pf);
+		
 		this.beta = (this.trackingData.getUpperFreq() + this.trackingData.getIfFreq())/(this.trackingData.getLowerFreq() + this.trackingData.getIfFreq());
 		this.beta_sq = Math.pow(this.beta, 2);
 		this.R = calculateR();

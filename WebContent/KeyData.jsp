@@ -26,6 +26,9 @@
 			 <input type="text" name="capHigh" id="cap_high"/>
 		<label for="cap_low">Tuning Cap lowest value:</label>
 			 <input type="text" name="capLow" id="cap_low"/>
+		<label for="stray">Stray Cap lowest value:</label>
+			 <input type="text" name="capStray" id="cap_stray"/>
+			 
 		
 		<input type="submit" value="Submit" />
 

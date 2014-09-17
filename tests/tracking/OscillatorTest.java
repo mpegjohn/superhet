@@ -21,6 +21,7 @@ public class OscillatorTest {
 		this.tracking.setUpperFreq(1620);
 		this.tracking.setLowerFreq(530);
 		this.tracking.setIfFreq(455);
+		this.tracking.setCapStray(8);
 		this.tracking.calculate();
 		
 		OscillatorCircuit osc = new OscillatorCircuit(tracking);
@@ -44,6 +45,7 @@ public class OscillatorTest {
 		this.tracking.setUpperFreq(1620);
 		this.tracking.setLowerFreq(530);
 		this.tracking.setIfFreq(455);
+		this.tracking.setCapStray(8);
 		this.tracking.calculate();
 		
 		OscillatorCircuit osc = new OscillatorCircuit(tracking);
