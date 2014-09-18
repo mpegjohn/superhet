@@ -23,6 +23,43 @@ public class Tracking {
 	private double alpha_sq;
 	private double alpha_sqrt;
 	
+	public String getUpperFreqUnit() {
+		return upperFreqUnit;
+	}
+	public void setUpperFreqUnit(String upperFreqUnit) {
+		this.upperFreqUnit = upperFreqUnit;
+	}
+	public String getLowerFreqUnit() {
+		return lowerFreqUnit;
+	}
+	public void setLowerFreqUnit(String lowerFreqUnit) {
+		this.lowerFreqUnit = lowerFreqUnit;
+	}
+	public String getIfFreqUnit() {
+		return ifFreqUnit;
+	}
+	public void setIfFreqUnit(String ifFreqUnit) {
+		this.ifFreqUnit = ifFreqUnit;
+	}
+	public String getCapHighUnit() {
+		return capHighUnit;
+	}
+	public void setCapHighUnit(String capHighUnit) {
+		this.capHighUnit = capHighUnit;
+	}
+	public String getCapLowUnit() {
+		return capLowUnit;
+	}
+	public void setCapLowUnit(String capLowUnit) {
+		this.capLowUnit = capLowUnit;
+	}
+
+	private String upperFreqUnit;
+	private String lowerFreqUnit;
+	private String ifFreqUnit;
+	private String capHighUnit;
+	private String capLowUnit;
+	
 	public double getUpperFreq() {
 		return upperFreq;
 	}
