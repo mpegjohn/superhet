@@ -18,6 +18,10 @@
  
 		<label for="upper_frequency">Upper Frequency:</label>
 			<input type="text" name="upperFreq" id="upper_frequency"/>
+			<select>
+				<option value="pF">pF</option>
+				
+			</select>
 		<label for="lower_frequency">Lower Freq: </label>
 			<input type="text" name="lowerFreq" id="lower_frequency"/>
 		<label for="if_frequency">IF Freq:</label>
