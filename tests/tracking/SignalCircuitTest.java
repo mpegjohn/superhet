@@ -16,6 +16,12 @@ public class SignalCircuitTest {
 	
 	@Test
 	public void testCalculate() {
+		this.tracking.setCapHighUnit("pF");
+		this.tracking.setCapLowUnit("pF");
+		this.tracking.setUpperFreqUnit("KHz");
+		this.tracking.setLowerFreqUnit("KHz");
+		this.tracking.setCapStrayUnit("pF");
+		this.tracking.setIfFreqUnit("KHz");
 		
 		this.tracking.setCapHigh(432);
 		this.tracking.setCapLow(12);
@@ -34,6 +40,12 @@ public class SignalCircuitTest {
 
 	@Test
 	public void testResonance() {
+		this.tracking.setCapHighUnit("pF");
+		this.tracking.setCapLowUnit("pF");
+		this.tracking.setUpperFreqUnit("KHz");
+		this.tracking.setLowerFreqUnit("KHz");
+		this.tracking.setCapStrayUnit("pF");
+		this.tracking.setIfFreqUnit("KHz");
 		
 		this.tracking.setCapHigh(432);
 		this.tracking.setCapLow(12);

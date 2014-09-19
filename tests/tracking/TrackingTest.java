@@ -19,12 +19,22 @@ public class TrackingTest {
 	
 	@Test
 	public void testCalculate() {
-				
+
+		this.tracking.setCapHighUnit("pF");
+		this.tracking.setCapLowUnit("pF");
+		this.tracking.setUpperFreqUnit("KHz");
+		this.tracking.setLowerFreqUnit("KHz");
+		this.tracking.setCapStrayUnit("pF");
+		this.tracking.setIfFreqUnit("KHz");
+		
 		this.tracking.setCapHigh(432);
 		this.tracking.setCapLow(12);
 		this.tracking.setUpperFreq(1620);
 		this.tracking.setLowerFreq(530);
 		this.tracking.setIfFreq(455);
+		this.tracking.setCapStray(8);
+		
+		
 		this.tracking.calculate();
 		
 		assertEquals(420 * Tracking.pf, tracking.getGmax(), 0.1 * Tracking.pf);

@@ -53,6 +53,11 @@
 			</select>
 		<label for="stray">Stray Cap lowest value:</label>
 			 <input type="text" name="capStray" id="cap_stray"/>
+			 <select name="capStrayUnit">
+				<option selected="selected">pF</option>
+				<option>nF</option>
+				<option>uF</option>
+			</select>
 		
 		<input type="submit" value="Submit" />
 

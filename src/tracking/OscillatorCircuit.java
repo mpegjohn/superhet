@@ -76,7 +76,7 @@ public class OscillatorCircuit {
 	
 	public void calculate() {
 		
-		this.Tl = new Capacitor(trackingData.getCapStray() * Tracking.pf);
+		this.Tl = new Capacitor(trackingData.getCapStray());
 		
 		this.beta = (this.trackingData.getUpperFreq() + this.trackingData.getIfFreq())/(this.trackingData.getLowerFreq() + this.trackingData.getIfFreq());
 		this.beta_sq = Math.pow(this.beta, 2);
