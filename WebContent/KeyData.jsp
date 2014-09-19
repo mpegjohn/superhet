@@ -50,7 +50,10 @@
 				<option selected="selected">pF</option>
 				<option>nF</option>
 				<option>uF</option>
-			</select>		
+			</select>
+		<label for="stray">Stray Cap lowest value:</label>
+			 <input type="text" name="capStray" id="cap_stray"/>
+		
 		<input type="submit" value="Submit" />
 
 	</form>

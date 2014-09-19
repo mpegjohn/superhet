@@ -36,9 +36,9 @@
 	<div id="chartdiv" style="height: 400px; width: 800px;"></div>
 
 	<div id="components">
-		<div id="Oscillator">
+		<div id="Oscillator circuit">
 			<h3>Oscillator components</h3>
-			<p class="inductor">Inductor:  
+			<p>Inductor:  
 			${sweepData.getOsc().getLo().toString()} 
 			</p>
 			<p>Padder:
@@ -51,7 +51,7 @@
 			${sweepData.getOsc().getTl().toString()}
 			</p>
 		</div>
-		<div id="signals">
+		<div id="signal circuit">
 			<h3>Signal components</h3>
 			<p>Inductor:
 			${sweepData.getSig().getL().toString()}
@@ -65,27 +65,19 @@
 	<button>Show details</button>
 	
 	<div id="details">
-		<%--
 		<p>f<sub>3</sub>: ${sweepData.getTrack().getF3()}</p>
 		<p>G<sub>max</sub>: ${sweepData.getTrack().getGmax()}</p>
 		<p>&alpha;=${sweepData.getTrack().getAlpha()}</p>
 		
-		<p class="capacitor">P<sub>min</sub>: <fmt:formatNumber
-		value="${sweepData.getOsc().getPmin().toString()}"
-		pattern="###.###E0" 
-		type="number">
-		</fmt:formatNumber>
+		<p>P<sub>min</sub>:
+		${sweepData.getOsc().getPmin().toString()}
 		</p>
-		<p >P<sub>max</sub>: <fmt:formatNumber
-		value="${sweepData.getOsc().getPmax().toString()}"
-		pattern="###.###E0" 
-		type="number">
-		</fmt:formatNumber>
+		<p >P<sub>max</sub>:
+		${sweepData.getOsc().getPmax().toString()}
 		</p>
 		<p>Tl<sub>max</sub>: ${sweepData.getOsc().getTlmax().toString()}</p>
 		<p>R: ${sweepData.getOsc().getR()}</p>
 		<p>&beta;: ${sweepData.getOsc().getBeta()}</p>
-		 --%>
 	</div>
 
 

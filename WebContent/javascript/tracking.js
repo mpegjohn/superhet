@@ -53,26 +53,6 @@ function createTrackingChart(jsonData) {
 
 }
 
-function calcUnitMult(number, unit) {
-	
-	var mults = ['p', 'n', 'u', 'm'];
-	
-	var mult = "";
-	
-	while(number < 1.0) {
-		number *= 1000;
-		mult = mults.pop();
-	};
-	
-	var formattedNumber = number + " " + mult + unit;
-	
-	//console.log("formatted number: " + formattedNumber);
-	
-	var ind = Qty(formattedNumber);
-	//console.log(ind);
-	
-	return ind.toPrec(0.01).toString();
-}
 
 $(document).ready(function() {
 
@@ -84,27 +64,6 @@ $(document).ready(function() {
 		$("#details").toggle("slow");
 	});
 	
-	$(".inductor").text(function(i, text) {
-			//console.log("i is: " + i + " text is:" + text);
-			var number = text.match(/-?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)?/);
 
-			var num = calcUnitMult(number, 'H');
-			
-			var type = text.match(/^.*:/);
-			
-			return (type + " " + num);
-			
-	});
-	$(".capacitor").text(function(i, text) {
-		//console.log("i is: " + i + " text is:" + text);
-		var number = text.match(/-?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)?/);
-
-		var num = calcUnitMult(number, 'F');
-		
-		var type = text.match(/^.*:/);
-		
-		return (type + " " + num);
-
-});
 
 });
