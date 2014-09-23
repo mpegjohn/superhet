@@ -51,7 +51,7 @@
 				<option>nF</option>
 				<option>uF</option>
 			</select>
-		<label for="stray">Stray Cap lowest value:</label>
+		<label for="stray">Stray Cap value:</label>
 			 <input type="text" name="capStray" id="cap_stray"/>
 			 <select name="capStrayUnit">
 				<option selected="selected">pF</option>

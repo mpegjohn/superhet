@@ -92,31 +92,31 @@ public class Tracking {
 		return upperFreq;
 	}
 	public void setUpperFreq(double upperFreq) {
-		this.upperFreq = upperFreq * unitsMap.get(this.upperFreqUnit);
+		this.upperFreq = upperFreq;
 	}
 	public double getLowerFreq() {
 		return lowerFreq;
 	}
 	public void setLowerFreq(double lowerFreq) {
-		this.lowerFreq = lowerFreq * unitsMap.get(this.lowerFreqUnit);
+		this.lowerFreq = lowerFreq;
 	}
 	public double getIfFreq() {
 		return ifFreq;
 	}
 	public void setIfFreq(double ifFreq) {
-		this.ifFreq = ifFreq * unitsMap.get(this.ifFreqUnit);
+		this.ifFreq = ifFreq;
 	}
 	public double getCapHigh() {
 		return capHigh;
 	}
 	public void setCapHigh(double capHigh) {
-		this.capHigh = capHigh * unitsMap.get(this.capHighUnit);;
+		this.capHigh = capHigh;
 	}
 	public double getCapLow() {
 		return capLow;
 	}
 	public void setCapLow(double capLow) {
-		this.capLow = capLow * unitsMap.get(this.capLowUnit);;
+		this.capLow = capLow;
 	}
 	
 	public double getF3() {
@@ -140,12 +140,18 @@ public class Tracking {
 		return capStray;
 	}
 	public void setCapStray(double capStray) {
-		this.capStray = capStray * unitsMap.get(this.capStrayUnit);
+		this.capStray = capStray;
 	}
 
 	public void calculate() {
 		// Calculation
 		// Third tracking frequency
+		this.upperFreq = this.upperFreq * unitsMap.get(this.upperFreqUnit);
+		this.lowerFreq = this.lowerFreq * unitsMap.get(this.lowerFreqUnit);
+		this.ifFreq = this.ifFreq * unitsMap.get(this.ifFreqUnit);
+		this.capHigh = this.capHigh * unitsMap.get(this.capHighUnit);
+		this.capLow = this.capLow * unitsMap.get(this.capLowUnit);
+		this.capStray = this.capStray * unitsMap.get(this.capStrayUnit);
 		
 		this.f3 = Math.sqrt(upperFreq * lowerFreq);
 		
