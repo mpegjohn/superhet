@@ -63,7 +63,6 @@ $(document).ready(function() {
 	$("button").click(function() {
 		$("#details").toggle("slow");
 	});
-	
-
-
 });
+
+

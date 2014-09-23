@@ -8,17 +8,21 @@
 <title>Superhet tracking calculator</title>
 </head>
 <body>
+	<script
+		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/javascript/KeyData.js"></script>
+
 	<jsp:useBean id="trackingDataBean" scope="request" class="tracking.Tracking">
 		<jsp:setProperty name="trackingDataBean" property="*"/>
 	</jsp:useBean>
 
-	<form action="Controller.jsp" method="post"> 
+	<form action="Controller.jsp" method="post" onsubmit="return validateKeyData()"> 
  
  	<h1>Key tracking data</h1>
  
 		<label for="upper_frequency">Upper Frequency:</label>
 			<input type="text" name="upperFreq" id="upper_frequency"/>
-			<select name="upperFreqUnit">
+			<select name="upperFreqUnit" id="upperFreqUnits">
 				<option>MHz</option>
 				<option selected="selected">KHz</option>
 				<option>Hz</option>
