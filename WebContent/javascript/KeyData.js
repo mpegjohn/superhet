@@ -5,7 +5,7 @@ function validateKeyData() {
 	
 	if (upper_freq == "" || lower_freq == "") {
 		console.log("Upper freq not set");
-		$("#upperFreqUnits").after("Need to supply the data").css('text-align', 'right');
+		$("#upperFreqUnits").after("<p class=\"error\">Need to supply the data</p>");
 		return false;
 	}
 	if (upper_freq < lower_freq) {

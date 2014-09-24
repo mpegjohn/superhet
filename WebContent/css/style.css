@@ -14,8 +14,9 @@ h1 {
 }
 
 label, input {
-    display: inline-block;
+  /*  display: inline-block;
     vertical-align: baseline;
+  */
     width: 250px;
 }
 
@@ -23,7 +24,7 @@ label {
     color: #2D2D2D;
     font-size: 15px;
 }
-
+/*
 form, input {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -32,6 +33,28 @@ form, input {
 form {
     width: 600px;
 }
+*/
+
 .error {
-	float: left;
+	display: table-cell;
+	color: red;
+}
+
+
+#inputData {
+	display: table;
+}
+
+.inputRow {
+	display: table-row;
+}
+
+label {
+	display: table-cell;
+}
+input {
+	display: table-cell;
+}
+select {
+	display: table-cell;
 }
