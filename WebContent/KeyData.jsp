@@ -38,7 +38,7 @@
 			<div class="inputRow">
 			<label for="lower_frequency">Lower Freq: </label> <input type="text"
 				name="lowerFreq" id="lower_frequency" /> <select
-				name="lowerFreqUnit">
+				id="lowerFreqUnit">
 				<option>MHz</option>
 				<option selected="selected">KHz</option>
 				<option>Hz</option>
