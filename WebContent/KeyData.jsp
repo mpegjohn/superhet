@@ -26,56 +26,58 @@
 		<div id="inputData">
 
 			<div class="inputRow">
-
-			<label for="upper_frequency">Upper Frequency:</label> <input
-				type="text" name="upperFreq" id="upper_frequency" /> <select
-				name="upperFreqUnit" id="upperFreqUnits">
-				<option>MHz</option>
-				<option selected="selected">KHz</option>
-				<option>Hz</option>
-			</select> 
+				<label for="upper_frequency">Upper Frequency:</label> 
+				<input type="text" name="upperFreq" id="upper_frequency" /> 
+				<select name="upperFreqUnit" id="upperFreqUnits">
+					<option>MHz</option>
+					<option selected="selected">KHz</option>
+					<option>Hz</option>
+				</select> 
 			</div>
 			<div class="inputRow">
-			<label for="lower_frequency">Lower Freq: </label> <input type="text"
-				name="lowerFreq" id="lower_frequency" /> <select
-				id="lowerFreqUnit">
-				<option>MHz</option>
-				<option selected="selected">KHz</option>
-				<option>Hz</option>
-			</select>
+				<label for="lower_frequency">Lower Freq: </label> 
+				<input type="text" name="lowerFreq" id="lower_frequency" /> 
+				<select name="lowerFreqUnit" id="lowerFreqUnits">
+					<option>MHz</option>
+					<option selected="selected">KHz</option>
+					<option>Hz</option>
+				</select>
 			</div>
 			<div class="inputRow">
-			<label for="if_frequency">IF Freq:</label> <input type="text"
-				name="ifFreq" id="if_frequency" /> <select name="ifFreqUnit">
-				<option>MHz</option>
-				<option selected="selected">KHz</option>
-				<option>Hz</option>
-			</select>
+				<label for="if_frequency">IF Freq:</label> 
+				<input type="text" name="ifFreq" id="if_frequency" /> 
+				<select name="ifFreqUnit" id="ifFreqUnits">
+					<option>MHz</option>
+					<option selected="selected">KHz</option>
+					<option>Hz</option>
+				</select>
 			</div>
 			<div class="inputRow">
-			<label for="cap_high">Tuning Cap highest value:</label> <input
-				type="text" name="capHigh" id="cap_high" /> <select
-				name="capHighUnit">
-				<option selected="selected">pF</option>
-				<option>nF</option>
-				<option>uF</option>
-			</select>
+				<label for="cap_high">Tuning Cap highest value:</label> 
+				<input type="text" name="capHigh" id="cap_high" /> 
+				<select name="capHighUnit" id="capHighUnits">
+					<option selected="selected">pF</option>
+					<option>nF</option>
+					<option>uF</option>
+				</select>
 			</div>
 			<div class="inputRow">
-			<label for="cap_low">Tuning Cap lowest value:</label> <input
-				type="text" name="capLow" id="cap_low" /> <select name="capLowUnit">
-				<option selected="selected">pF</option>
-				<option>nF</option>
-				<option>uF</option>
-			</select>
+				<label for="cap_low">Tuning Cap lowest value:</label> 
+				<input type="text" name="capLow" id="cap_low" /> 
+				<select name="capLowUnit" id="capLowUnits">
+					<option selected="selected">pF</option>
+					<option>nF</option>
+					<option>uF</option>
+				</select>
 			</div>
 			<div class="inputRow">
-			<label for="stray">Stray Cap value:</label> <input type="text"
-				name="capStray" id="cap_stray" /> <select name="capStrayUnit">
-				<option selected="selected">pF</option>
-				<option>nF</option>
-				<option>uF</option>
-			</select>
+				<label for="stray">Stray Cap value:</label>
+				<input type="text" name="capStray" id="cap_stray" /> 
+				<select name="capStrayUnit" id="capStrayUnits">
+					<option selected="selected">pF</option>
+					<option>nF</option>
+					<option>uF</option>
+				</select>
 			</div>
 		</div>
 
