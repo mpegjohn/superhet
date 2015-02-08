@@ -15,9 +15,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%-- 
 	<script
 		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+--%>
+	<script
+	    src="//www.google.com/jsapi"></script>
+<%-- 
 	<script
 		src="${pageContext.request.contextPath}/javascript/jquery.jqplot.js"></script>
 
@@ -26,14 +30,14 @@
 
 	<script
 		src="${pageContext.request.contextPath}/javascript/quantities.js"></script>
-
+--%>
 
 	<script src="${pageContext.request.contextPath}/javascript/tracking.js"></script>
 
 	<jsp:useBean id="sweepData" scope="session" class="tracking.Sweep">
 	</jsp:useBean>
 
-	<div id="chartdiv" style="height: 400px; width: 800px;"></div>
+	<div id="chart_div"></div>
 
 	<div id="components">
 		<div id="Oscillator circuit">
