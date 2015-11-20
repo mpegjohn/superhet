@@ -85,6 +85,8 @@
 
 	</form>
 
+	<div id="chart_div"></div>
+
 
 </body>
 </html>
