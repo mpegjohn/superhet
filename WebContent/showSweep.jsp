@@ -66,9 +66,9 @@
 		</div>
 	</div>
 
-	<button>Show details</button>
+
 	
-	<div id="details">
+	<div>
 		<p>f<sub>3</sub>: ${sweepData.getTrack().getF3()}</p>
 		<p>G<sub>max</sub>: ${sweepData.getTrack().getGmax()}</p>
 		<p>&alpha;=${sweepData.getTrack().getAlpha()}</p>
