@@ -23,9 +23,82 @@ public class googleChartPlot extends DataSourceServlet {
 	@Override
 	public DataTable generateDataTable(Query query, HttpServletRequest request) {
 
+
+/*
+        public void setUpperFreqUnit(String upperFreqUnit) {
+        public void setLowerFreqUnit(String lowerFreqUnit) {
+        public void setIfFreqUnit(String ifFreqUnit) {
+        public void setCapHighUnit(String capHighUnit) {
+        public void setCapLowUnit(String capLowUnit) {
+        public void setCapStrayUnit(String capStrayUnit) {
+        public void setUpperFreq(double upperFreq) {
+        public void setLowerFreq(double lowerFreq) {
+        public void setIfFreq(double ifFreq) {
+        public void setCapHigh(double capHigh) {
+        public void setCapLow(double capLow) {
+        public void setCapStray(double capStray) {
+*/
+
+	Tracking trackingData = new Tracking();
+
+	trackingData.setUpperFreqUnit(request.getParameter("upperFreqUnit"));
+	trackingData.setLowerFreqUnit(request.getParameter("lowerFreqUnit"));
+	trackingData.setIfFreqUnit(request.getParameter("ifFreqUnit"));
+	trackingData.setCapHighUnit(request.getParameter("capHighUnit");
+	trackingData.setCapLowUnit(request.getParameter("capLowUnit");
+	trackingData.setCapStrayUnit(request.getParameter("capStrayUnit");
+	trackingData.setUpperFreq(Double.parseDouble(request.getParameter("upperfreq")));
+	trackingData.setLowerFreq(Double.parseDouble(request.getParameter("lowerfreq")));
+	trackingData.setIfFreq(Double.parseDouble(request.getParameter("iffreq")));
+	trackingData.setCapHigh(Double.parseDouble(request.getParameter("capHigh")));
+	trackingData.setCapLow(Double.parseDouble(request.getParameter("capLow")));
+	trackingData.setCapStray(Double.parseDouble(request.getParameter("capStray")));
+
+
+
+
+
+
+
 		HttpSession session = request.getSession();
 
 		Sweep sweepData = (Sweep) session.getAttribute("sweepData");
+
+
+		Sweep sweepData = new Sweep();
+
+		
+
+                        Tracking tracking = (Tracking)  request.getAttribute("trackingDataBean");
+                        
+                        tracking.calculate();
+                        
+                        OscillatorCircuit osc = new OscillatorCircuit(tracking);
+                        osc.calculate();
+                        
+                        SignalCircuit sig = new SignalCircuit(tracking);
+                        sig.calculate();
+                        
+                        double signalFo[] = new double[100];
+                        double oscFo[] = new double[100];
+                        double trackError[] = new double[100];
+                        
+                        for(int i = 0; i < 100; i++)
+                        {
+                                double rotation = (double) i/100.0;
+                                signalFo[i] = sig.calculateFo(rotation);
+                                oscFo[i] = osc.calculateFo(rotation);
+                                
+                                trackError[i] = (oscFo[i] - signalFo[i]) - tracking.getIfFreq(); 
+                        }
+                        
+                        Sweep sweep = new Sweep();
+                        sweep.setOscFo(oscFo);
+                        sweep.setSignalFo(signalFo);
+                        sweep.setTrackError(trackError);
+                        sweep.setOsc(osc);
+                        sweep.setSig(sig);
+                        sweep.setTrack(tracking);
 
 		// Create a data table,
 		DataTable data = new DataTable();
