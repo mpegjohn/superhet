@@ -14,7 +14,7 @@
 	<script src="${pageContext.request.contextPath}/javascript/KeyData.js"></script>
 
 
-	<form action="/chartData2" method="post"
+	<form action="chartData2" method="post"
 		onsubmit="return validateKeyData()">
 
 		<h1>Key tracking data</h1>
