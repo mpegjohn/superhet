@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import com.google.visualization.datasource.DataSourceServlet;
 import com.google.visualization.datasource.base.TypeMismatchException;
 import com.google.visualization.datasource.datatable.ColumnDescription;
@@ -82,12 +81,12 @@ public class googleChartPlot extends DataSourceServlet {
 
 		data.addColumns(cd);
 
-		int numPoints = sweepData.getOscFo().length;
+		int numPoints = sweep.getOscFo().length;
 
 		for (int i = 0; i < numPoints; i++) {
 			try {
-				data.addRowFromValues(sweepData.getSignalFo()[i],
-						sweepData.getTrackError()[i]);
+				data.addRowFromValues(sweep.getSignalFo()[i],
+						sweep.getTrackError()[i]);
 			} catch (TypeMismatchException e) {
 				System.out.println("Invalid type!");
 			}
