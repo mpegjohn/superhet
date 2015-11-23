@@ -23,22 +23,6 @@ public class googleChartPlot extends DataSourceServlet {
 	@Override
 	public DataTable generateDataTable(Query query, HttpServletRequest request) {
 
-
-/*
-        public void setUpperFreqUnit(String upperFreqUnit) {
-        public void setLowerFreqUnit(String lowerFreqUnit) {
-        public void setIfFreqUnit(String ifFreqUnit) {
-        public void setCapHighUnit(String capHighUnit) {
-        public void setCapLowUnit(String capLowUnit) {
-        public void setCapStrayUnit(String capStrayUnit) {
-        public void setUpperFreq(double upperFreq) {
-        public void setLowerFreq(double lowerFreq) {
-        public void setIfFreq(double ifFreq) {
-        public void setCapHigh(double capHigh) {
-        public void setCapLow(double capLow) {
-        public void setCapStray(double capStray) {
-*/
-
 	Tracking trackingData = new Tracking();
 
 	trackingData.setUpperFreqUnit(request.getParameter("upperFreqUnit"));
@@ -54,29 +38,12 @@ public class googleChartPlot extends DataSourceServlet {
 	trackingData.setCapLow(Double.parseDouble(request.getParameter("capLow")));
 	trackingData.setCapStray(Double.parseDouble(request.getParameter("capStray")));
 
-
-
-
-
-
-
-		HttpSession session = request.getSession();
-
-		Sweep sweepData = (Sweep) session.getAttribute("sweepData");
-
-
-		Sweep sweepData = new Sweep();
-
-		
-
-                        Tracking tracking = (Tracking)  request.getAttribute("trackingDataBean");
+                        trackingData.calculate();
                         
-                        tracking.calculate();
-                        
-                        OscillatorCircuit osc = new OscillatorCircuit(tracking);
+                        OscillatorCircuit osc = new OscillatorCircuit(trackingData);
                         osc.calculate();
                         
-                        SignalCircuit sig = new SignalCircuit(tracking);
+                        SignalCircuit sig = new SignalCircuit(trackingData);
                         sig.calculate();
                         
                         double signalFo[] = new double[100];
@@ -89,7 +56,7 @@ public class googleChartPlot extends DataSourceServlet {
                                 signalFo[i] = sig.calculateFo(rotation);
                                 oscFo[i] = osc.calculateFo(rotation);
                                 
-                                trackError[i] = (oscFo[i] - signalFo[i]) - tracking.getIfFreq(); 
+                                trackError[i] = (oscFo[i] - signalFo[i]) - trackingData.getIfFreq(); 
                         }
                         
                         Sweep sweep = new Sweep();
@@ -98,7 +65,7 @@ public class googleChartPlot extends DataSourceServlet {
                         sweep.setTrackError(trackError);
                         sweep.setOsc(osc);
                         sweep.setSig(sig);
-                        sweep.setTrack(tracking);
+                        sweep.setTrack(trackingData);
 
 		// Create a data table,
 		DataTable data = new DataTable();
