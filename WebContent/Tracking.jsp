@@ -13,12 +13,8 @@
 		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/javascript/KeyData.js"></script>
 
-	<jsp:useBean id="trackingDataBean" scope="request"
-		class="tracking.Tracking">
-		<jsp:setProperty name="trackingDataBean" property="*" />
-	</jsp:useBean>
 
-	<form action="Controller.jsp" method="post"
+	<form action="chartData2" method="post"
 		onsubmit="return validateKeyData()">
 
 		<h1>Key tracking data</h1>
