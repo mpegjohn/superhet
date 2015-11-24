@@ -31,11 +31,11 @@ public class googleChartPlot extends DataSourceServlet {
 		trackingData.setCapLowUnit(request.getParameter("capLowUnit"));
 		trackingData.setCapStrayUnit(request.getParameter("capStrayUnit"));
 		trackingData.setUpperFreq(Double.parseDouble(request
-				.getParameter("upperfreq")));
+				.getParameter("upperFreq")));
 		trackingData.setLowerFreq(Double.parseDouble(request
-				.getParameter("lowerfreq")));
+				.getParameter("lowerFreq")));
 		trackingData.setIfFreq(Double.parseDouble(request
-				.getParameter("iffreq")));
+				.getParameter("ifFreq")));
 		trackingData.setCapHigh(Double.parseDouble(request
 				.getParameter("capHigh")));
 		trackingData.setCapLow(Double.parseDouble(request
