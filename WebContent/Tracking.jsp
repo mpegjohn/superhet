@@ -13,9 +13,7 @@
 		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/javascript/KeyData.js"></script>
 
-
-	<form action="chartData2" method="post"
-		onsubmit="return validateKeyData()">
+	<form action="/" id="keyDataForm">
 
 		<h1>Key tracking data</h1>
 
