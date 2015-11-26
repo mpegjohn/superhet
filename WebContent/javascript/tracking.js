@@ -2,7 +2,7 @@
  * 
  */
 
-google.load('visualization', '1', {'packages':['corechart']});
+//google.load('visualization', '1', {'packages':['corechart']});
 
 // Set a callback to run when the API is loaded.
 google.setOnLoadCallback(init);
@@ -10,12 +10,16 @@ google.setOnLoadCallback(init);
 // Send the query to the data source.
 function init() {
 
-	$("keyDataForm"),submit(function(event){
+	$("#keyDataForm").submit(function(event){
 
 		// Stop form from submitting normally
 		event.preventDefault();
 
-		var $form = $(this)
+		var $form = $(this);
+
+		
+		
+		
 
 		// Specify the data source URL.
 		var query = new google.visualization.Query('chartData2');

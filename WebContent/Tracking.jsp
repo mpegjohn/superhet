@@ -9,9 +9,18 @@
 <title>Superhet tracking calculator</title>
 </head>
 <body>
-	<script
-		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script
+	    src="//www.google.com/jsapi"></script>
+<script type="text/javascript">
+	google.load("jquery", "1.4.2");
+	google.load("visualization", "1");
+</script>
+	    
+<%--
 	<script src="${pageContext.request.contextPath}/javascript/KeyData.js"></script>
+ --%>
+	<script src="${pageContext.request.contextPath}/javascript/tracking.js"></script>
 
 	<form action="/" id="keyDataForm">
 
