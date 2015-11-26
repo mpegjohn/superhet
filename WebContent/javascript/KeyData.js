@@ -82,8 +82,14 @@ function validateKeyData() {
 		return false;
 	}
 	
+	return {
+		'upper_freq' : upper_freq,
+		'lower_freq' : lower_freq, 
+		'if_freq' : if_freq,
+		'cap_high' : cap_high,
+		'cap_low' : cap_low
+	};
 	
-	return true;
 }
 
 function multiplier(value, multiplier) {
