@@ -20,10 +20,10 @@ function init() {
 			return;
 		}
 		
-		
+7		
 
 		// Specify the data source URL.
-		var query = new google.visualization.Query('chartData2',$values);
+		var query = new google.visualization.Query('chartData2?upperFreqUnit=MHz');
 
 		// Send the query with a callback function.
 		query.send(handleQueryResponse);
