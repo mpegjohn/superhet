@@ -22,16 +22,21 @@ function init() {
 
         for (key in values) {
 
-            query_string += key + "="
-            values[key] + "&";
+            query_string += key + "=" + values[key] + "&";
         }
 
         // remove the last &
         query_string = query_string.substring(0, query_string.length - 1);
 
-
+        query_string = "chartData2" + query_string;
+        
+        var capStrayUnit = $("#capStrayUnits").val();
+        var capStray = $("#cap_stray").val();
+        
+        query_string += "&capStrayUnit=" + capStrayUnit;
+        query_string += "&capStray=" + capStray;
         // Specify the data source URL.
-        var query = new google.visualization.Query('chartData2' + query_string);
+        var query = new google.visualization.Query(query_string);
 
         // Send the query with a callback function.
         query.send(handleQueryResponse);
@@ -57,36 +62,36 @@ function handleQueryResponse(response) {
 
 function validateKeyData() {
 
-    var upper_freq = $('#upper_frequency').val();
-    var lower_freq = $('#lower_frequency').val();
-    var if_freq = $('#if_frequency').val();
-    var cap_high = $('#cap_high').val();
-    var cap_low = $('#cap_low').val();
-
+    var upperFreq = $('#upper_frequency').val();
+    var lowerFreq = $('#lower_frequency').val();
+    var ifFreq = $('#if_frequency').val();
+    var capHigh = $('#cap_high').val();
+    var capLow = $('#cap_low').val();
+    var upperFreqUnit = $("#upperFreqUnits").val();
+    var lowerFreqUnit = $("#lowerFreqUnits").val();
+    var upperCapUnit = $("#capHighUnits").val();
+    var lowerCapUnit = $("#capLowUnits").val();
+    var ifFreqUnit = $("#ifFreqUnits").val();
 
     var upper_value;
     var lower_value;
 
     $(".error").remove()
 
-    if (upper_freq == "") {
+    if (upperFreq == "") {
         console.log("Upper freq not set");
         $("#upperFreqUnits").after("<p class=\"error\">Need to supply the data</p>");
         return false;
     } else {
-        var upper_freq_unit = $("#upperFreqUnits").val();
-
-        upper_value = multiplier(upper_freq, upper_freq_unit);
+        upper_value = multiplier(upperFreq, upperFreqUnit);
     }
 
-    if (lower_freq == "") {
+    if (lowerFreq == "") {
         console.log("Upper freq not set");
         $("#lowerFreqUnits").after("<p class=\"error\">Need to supply the data</p>");
         return false;
     } else {
-        var lower_freq_unit = $("#lowerFreqUnits").val();
-
-        lower_value = multiplier(lower_freq, lower_freq_unit);
+        lower_value = multiplier(lowerFreq, lowerFreqUnit);
     }
 
     if (upper_value < lower_value) {
@@ -95,30 +100,27 @@ function validateKeyData() {
     }
 
 
-    if (if_freq == "") {
+    if (ifFreq == "") {
         console.log("IF freq not set");
         $("#ifFreqUnits").after("<p class=\"error\">Need an IF freq</p>");
         return false;
     }
 
-    if (cap_high == "") {
+    if (capHigh == "") {
         console.log("Cap high not set");
         $("#capHighUnits").after("<p class=\"error\">Need a capacitance here</p>");
         return false;
     } else {
-        var upper_cap_unit = $("#capHighUnits").val();
-
-        upper_value = multiplier(cap_high, upper_cap_unit);
+        upper_value = multiplier(capHigh, upperCapUnit);
     }
 
-    if (cap_low == "") {
+    if (capLow == "") {
         console.log("Cap low not set");
         $("#capLowUnits").after("<p class=\"error\">Need a capacitance here</p>");
         return false;
     } else {
-        var lower_cap_unit = $("#capLowUnits").val();
 
-        lower_value = multiplier(cap_low, lower_cap_unit);
+        lower_value = multiplier(capLow, lowerCapUnit);
     }
 
     if (upper_value < lower_value) {
@@ -127,11 +129,16 @@ function validateKeyData() {
     }
 
     return {
-        'upper_freq': upper_freq,
-        'lower_freq': lower_freq,
-        'if_freq': if_freq,
-        'cap_high': cap_high,
-        'cap_low': cap_low
+        'upperFreq': upperFreq,
+        'lowerFreq': lowerFreq,
+        'ifFreq': ifFreq,
+        'capHigh': capHigh,
+        'capLow': capLow,
+        'upperFreqUnit' : upperFreqUnit,
+        'lowerFreqUnit' : lowerFreqUnit,
+        'capHighUnit' : upperCapUnit,
+        'capLowUnit' : lowerCapUnit,
+        'ifFreqUnit' : ifFreqUnit
     };
 
 }

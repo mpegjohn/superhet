@@ -14,7 +14,7 @@
 	    src="//www.google.com/jsapi"></script>
 <script type="text/javascript">
 	google.load("jquery", "1.4.2");
-	google.load("visualization", "1");
+	google.load("visualization", "1", {packages:["corechart", "table"]});
 </script>
 	    
 <%--
