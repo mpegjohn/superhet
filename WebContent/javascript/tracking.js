@@ -52,12 +52,24 @@ function handleQueryResponse(response) {
 
     // Draw the visualization.
     var data = response.getDataTable();
+    
+    var properties = data.hr;
+    
     var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
     chart.draw(data, {
         width: 600,
         height: 150,
         is3D: true
     });
+    
+    $("#osc_inductor").val(properties.osc_ind);
+    $("#osc_trimmer").val(properties.osc_trimmer);
+    $("#osc_padder").val(properties.osc_padder);
+    $("#osc_stray").val(properties.osc_stay);
+    
+    $("#sig_inductor").val(properties.sig_ind);
+    $("#sig_trimmer").val(properties.sig_trimmer);
+    
 }
 
 function validateKeyData() {

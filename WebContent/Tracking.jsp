@@ -89,6 +89,34 @@
 	</form>
 
 	<div id="chart_div"></div>
+	
+		<div id="components">
+		<div id="Oscillator circuit">
+			<h3>Oscillator components</h3>
+			<p>Inductor:  
+			<label id="osc_inductor"></label> 
+			</p>
+			<p>Padder:
+			<label id="osc_padder"></label>
+			</p>
+			<p>Tc:
+			<label id="osc_trimmer"></label>
+			</p>
+			<p>Tl:
+			<label id="osc_stray"></label>
+			</p>
+		</div>
+		<div id="signal circuit">
+			<h3>Signal components</h3>
+			<p>Inductor:
+			<label id="sig_inductor"></label>
+			</p>
+			<p>T:
+			<label id="sig_trimmer"></label>
+			</p>
+		</div>
+	</div>
+	
 
 
 </body>

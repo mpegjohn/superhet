@@ -91,6 +91,15 @@ public class googleChartPlot extends DataSourceServlet {
 				System.out.println("Invalid type!");
 			}
 		}
+		
+		data.setCustomProperty("osc_ind", osc.getLo().toString());
+		data.setCustomProperty("osc_padder", osc.getP().toString());
+		data.setCustomProperty("osc_trimmer", osc.getTc().toString());
+		data.setCustomProperty("osc_stray", osc.getTl().toString());
+		
+		data.setCustomProperty("rf_ind", sig.getL().toString());
+		data.setCustomProperty("rf_trimmer", sig.getT().toString());
+		
 		return data;
 	}
 
