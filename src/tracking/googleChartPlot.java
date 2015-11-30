@@ -63,13 +63,6 @@ public class googleChartPlot extends DataSourceServlet {
 			trackError[i] = (oscFo[i] - signalFo[i]) - trackingData.getIfFreq();
 		}
 
-		Sweep sweep = new Sweep();
-		sweep.setOscFo(oscFo);
-		sweep.setSignalFo(signalFo);
-		sweep.setTrackError(trackError);
-		sweep.setOsc(osc);
-		sweep.setSig(sig);
-		sweep.setTrack(trackingData);
 
 		// Create a data table,
 		DataTable data = new DataTable();
@@ -81,12 +74,12 @@ public class googleChartPlot extends DataSourceServlet {
 
 		data.addColumns(cd);
 
-		int numPoints = sweep.getOscFo().length;
+		int numPoints = oscFo.length;
 
 		for (int i = 0; i < numPoints; i++) {
 			try {
-				data.addRowFromValues(sweep.getSignalFo()[i],
-						sweep.getTrackError()[i]);
+				data.addRowFromValues(signalFo[i],
+						trackError[i]);
 			} catch (TypeMismatchException e) {
 				System.out.println("Invalid type!");
 			}
