@@ -62,13 +62,13 @@ function handleQueryResponse(response) {
         is3D: true
     });
     
-    $("#osc_inductor").val(properties.osc_ind);
-    $("#osc_trimmer").val(properties.osc_trimmer);
-    $("#osc_padder").val(properties.osc_padder);
-    $("#osc_stray").val(properties.osc_stay);
+    $("#osc_inductor").text(properties.osc_ind);
+    $("#osc_trimmer").text(properties.osc_trimmer);
+    $("#osc_padder").text(properties.osc_padder);
+    $("#osc_stray").text(properties.osc_stray);
     
-    $("#sig_inductor").val(properties.sig_ind);
-    $("#sig_trimmer").val(properties.sig_trimmer);
+    $("#sig_inductor").text(properties.sig_ind);
+    $("#sig_trimmer").text(properties.sig_trimmer);
     
 }
 
