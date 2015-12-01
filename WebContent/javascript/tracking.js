@@ -54,13 +54,21 @@ function handleQueryResponse(response) {
     var data = response.getDataTable();
     
     var properties = data.hr;
+
+    var myView = new google.visualization.DataView(data);
+    
+    myView.hideColumns([1]);
+    
+    var options = {
+            width: 600,
+            height: 150,
+            title: 'Frequency error',
+            curveType: 'function',
+            legend: { position: 'bottom' },
+    };
     
     var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-    chart.draw(data, {
-        width: 600,
-        height: 150,
-        is3D: true
-    });
+    chart.draw(myView, options);
     
     $("#osc_inductor").text(properties.osc_ind);
     $("#osc_trimmer").text(properties.osc_trimmer);

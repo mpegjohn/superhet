@@ -69,8 +69,10 @@ public class googleChartPlot extends DataSourceServlet {
 		ArrayList<ColumnDescription> cd = new ArrayList<ColumnDescription>();
 		cd.add(new ColumnDescription("error", ValueType.NUMBER,
 				"Error frequecy"));
-		cd.add(new ColumnDescription("RF frequecu", ValueType.NUMBER,
+		cd.add(new ColumnDescription("RF frequency", ValueType.NUMBER,
 				"RF frequecy"));
+		cd.add(new ColumnDescription("Oscillator frequency", ValueType.NUMBER,
+				"Osc Frequency"));
 
 		data.addColumns(cd);
 
@@ -79,7 +81,7 @@ public class googleChartPlot extends DataSourceServlet {
 		for (int i = 0; i < numPoints; i++) {
 			try {
 				data.addRowFromValues(signalFo[i],
-						trackError[i]);
+						trackError[i],oscFo[i]);
 			} catch (TypeMismatchException e) {
 				System.out.println("Invalid type!");
 			}
