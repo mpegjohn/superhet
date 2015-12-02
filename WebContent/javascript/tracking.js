@@ -55,20 +55,28 @@ function handleQueryResponse(response) {
     
     var properties = data.hr;
 
-    var myView = new google.visualization.DataView(data);
-    
-    myView.hideColumns([1]);
-    
+    var oscFreqView = new google.visualization.DataView(data);
+    oscFreqView.hideColumns([1]);
+
+    var errorFreqView = new google.visualization.DataView(data);
+    errorFreqView.hideColumns([2]);
+
     var options = {
-            width: 600,
-            height: 150,
-            title: 'Frequency error',
+            width: 700,
+            height: 300,
+            title: 'Oscillator Frequecy',
             curveType: 'function',
             legend: { position: 'bottom' },
     };
     
-    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-    chart.draw(myView, options);
+    var oscCart = new google.visualization.LineChart(document.getElementById('osc_chart_div'));
+    oscCart.draw(oscFreqView, options);
+    
+    options['title'] = 'Error Frequency';
+    
+    var errCart = new google.visualization.LineChart(document.getElementById('error_chart_div'));
+    errCart.draw(errorFreqView, options);
+    
     
     $("#osc_inductor").text(properties.osc_ind);
     $("#osc_trimmer").text(properties.osc_trimmer);
