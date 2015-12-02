@@ -14,7 +14,11 @@ public class SignalCircuit {
 	}	
 	private Capacitor T;
 	private Inductor L;
-	
+	private double actualCap;
+
+	public double getActualCap() {
+		return actualCap;
+	}
 
 	public Capacitor getT() {
 		return T;
@@ -36,9 +40,9 @@ public class SignalCircuit {
 
 	public double calculateFo(double percentRotation) {
 		
-		double actualCap = (percentRotation * (this.trackingData.getCapHigh() - this.trackingData.getCapLow())) + this.trackingData.getCapLow();
+		this.actualCap = (percentRotation * (this.trackingData.getCapHigh() - this.trackingData.getCapLow())) + this.trackingData.getCapLow();
 		
-		Capacitor G = new Capacitor(actualCap);
+		Capacitor G = new Capacitor(this.actualCap);
 		Capacitor T = new Capacitor(this.T.getValue() - this.trackingData.getCapLow());
 		
 		G.addParallel(T);

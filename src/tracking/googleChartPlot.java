@@ -54,10 +54,12 @@ public class googleChartPlot extends DataSourceServlet {
 		double signalFo[] = new double[100];
 		double oscFo[] = new double[100];
 		double trackError[] = new double[100];
+		double capValue[] = new double[100];
 
 		for (int i = 0; i < 100; i++) {
 			double rotation = (double) i / 100.0;
 			signalFo[i] = sig.calculateFo(rotation);
+			
 			oscFo[i] = osc.calculateFo(rotation);
 
 			trackError[i] = (oscFo[i] - signalFo[i]) - trackingData.getIfFreq();
@@ -67,10 +69,11 @@ public class googleChartPlot extends DataSourceServlet {
 		// Create a data table,
 		DataTable data = new DataTable();
 		ArrayList<ColumnDescription> cd = new ArrayList<ColumnDescription>();
-		cd.add(new ColumnDescription("error", ValueType.NUMBER,
-				"Error frequecy"));
+
 		cd.add(new ColumnDescription("RF frequency", ValueType.NUMBER,
 				"RF frequecy"));
+		cd.add(new ColumnDescription("error", ValueType.NUMBER,
+				"Error frequecy"));
 		cd.add(new ColumnDescription("Oscillator frequency", ValueType.NUMBER,
 				"Osc Frequency"));
 
@@ -80,7 +83,7 @@ public class googleChartPlot extends DataSourceServlet {
 
 		for (int i = 0; i < numPoints; i++) {
 			try {
-				data.addRowFromValues(signalFo[i],
+				data.addRowFromValues( signalFo[i],
 						trackError[i],oscFo[i]);
 			} catch (TypeMismatchException e) {
 				System.out.println("Invalid type!");
