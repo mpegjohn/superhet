@@ -54,10 +54,12 @@ public class googleChartPlot extends DataSourceServlet {
 		double signalFo[] = new double[100];
 		double oscFo[] = new double[100];
 		double trackError[] = new double[100];
+        String capValue[] = new String[100];
 
 		for (int i = 0; i < 100; i++) {
 			double rotation = (double) i / 100.0;
 			signalFo[i] = sig.calculateFo(rotation);
+            capValue[i] = sig.getG().toString();
 			oscFo[i] = osc.calculateFo(rotation);
 
 			trackError[i] = (oscFo[i] - signalFo[i]) - trackingData.getIfFreq();

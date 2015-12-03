@@ -14,6 +14,7 @@ public class SignalCircuit {
 	}	
 	private Capacitor T;
 	private Inductor L;
+	private Capacitor G;
 	
 
 	public Capacitor getT() {
@@ -22,6 +23,10 @@ public class SignalCircuit {
 
 	public Inductor getL() {
 		return L;
+	}
+
+	public Capacitor getG() {
+		return G;
 	}
 	
 	public void calculate() {
@@ -38,10 +43,10 @@ public class SignalCircuit {
 		
 		double actualCap = (percentRotation * (this.trackingData.getCapHigh() - this.trackingData.getCapLow())) + this.trackingData.getCapLow();
 		
-		Capacitor G = new Capacitor(actualCap);
+		this.G = new Capacitor(actualCap);
 		Capacitor T = new Capacitor(this.T.getValue() - this.trackingData.getCapLow());
 		
-		G.addParallel(T);
+		this.G.addParallel(T);
 		
 		TunedCircuit circuit = new TunedCircuit(this.L, G);
 		
