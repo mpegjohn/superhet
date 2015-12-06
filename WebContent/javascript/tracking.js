@@ -28,7 +28,7 @@ function init() {
         // remove the last &
         query_string = query_string.substring(0, query_string.length - 1);
 
-        query_string = "chartData2" + query_string;
+        query_string = "CalculateTrackingData" + query_string;
         
         var capStrayUnit = $("#capStrayUnits").val();
         var capStray = $("#cap_stray").val();
@@ -36,10 +36,21 @@ function init() {
         query_string += "&capStrayUnit=" + capStrayUnit;
         query_string += "&capStray=" + capStray;
         // Specify the data source URL.
-        var query = new google.visualization.Query(query_string);
-
-        // Send the query with a callback function.
-        query.send(handleQueryResponse);
+        
+        $.get( query_string, function( data ) {
+        	  
+            $("#osc_inductor").text(data.osc_ind);
+            $("#osc_trimmer").text(data.osc_trimmer);
+            $("#osc_padder").text(data.osc_padder);
+            $("#osc_stray").text(data.osc_stray);
+            
+            $("#sig_inductor").text(data.sig_ind);
+            $("#sig_trimmer").text(data.sig_trimmer)
+            
+            var query = new google.visualization.Query("GetErrorData");
+            query.send(handleQueryResponse);
+        	});
+        
     });
 }
 
@@ -53,39 +64,16 @@ function handleQueryResponse(response) {
     // Draw the visualization.
     var data = response.getDataTable();
     
-    var properties = data.hr;
-
-    var oscFreqView = new google.visualization.DataView(data);
-    oscFreqView.hideColumns([1]);
-
-    var errorFreqView = new google.visualization.DataView(data);
-    errorFreqView.hideColumns([2]);
-
     var options = {
             width: 700,
             height: 300,
-            title: 'Oscillator Frequecy',
+            title: 'Error Frequency',
             curveType: 'function',
             legend: { position: 'bottom' },
     };
     
     var oscCart = new google.visualization.LineChart(document.getElementById('osc_chart_div'));
-    oscCart.draw(oscFreqView, options);
-    
-    options['title'] = 'Error Frequency';
-    
-    var errCart = new google.visualization.LineChart(document.getElementById('error_chart_div'));
-    errCart.draw(errorFreqView, options);
-    
-    
-    $("#osc_inductor").text(properties.osc_ind);
-    $("#osc_trimmer").text(properties.osc_trimmer);
-    $("#osc_padder").text(properties.osc_padder);
-    $("#osc_stray").text(properties.osc_stray);
-    
-    $("#sig_inductor").text(properties.sig_ind);
-    $("#sig_trimmer").text(properties.sig_trimmer);
-    
+    oscCart.draw(data, options);
 }
 
 function validateKeyData() {
