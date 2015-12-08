@@ -91,7 +91,7 @@
 	<div id="error_chart_div"></div>
 
 
-	<div id="osc_chart_div"></div>
+	<div id="freq_chart_div"></div>
 	
 		<div id="components">
 		<div id="Oscillator circuit">

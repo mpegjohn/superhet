@@ -79,7 +79,7 @@ function errorQueryResponse(response) {
 	};
 
 	var oscCart = new google.visualization.LineChart(document
-			.getElementById('osc_chart_div'));
+			.getElementById('error_chart_div'));
 	oscCart.draw(data, options);
 }
 
@@ -109,7 +109,7 @@ function frequencyQueryResponse(response) {
 	};
 
 	var oscCart = new google.visualization.LineChart(document
-			.getElementById('error_chart_div'));
+			.getElementById('freq_chart_div'));
 	oscCart.draw(data, options);
 }
 
