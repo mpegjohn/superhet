@@ -47,11 +47,11 @@ function init() {
 			$("#sig_inductor").text(data.sig_ind);
 			$("#sig_trimmer").text(data.sig_trimmer)
 
-			var query = new google.visualization.Query("GetErrorData");
-			query.send(errorQueryResponse);
+			var error_query = new google.visualization.Query("GetErrorData");
+			error_query.send(errorQueryResponse);
 			
-			var query = new google.visualization.Query("GetFrequencyData");
-			query.send(frequencyQueryResponse);
+			var fr_query = new google.visualization.Query("GetFrequencyData");
+			fr_query.send(frequencyQueryResponse);
 		});
 
 	});
