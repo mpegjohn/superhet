@@ -35,6 +35,9 @@ function init() {
 
 		query_string += "&capStrayUnit=" + capStrayUnit;
 		query_string += "&capStray=" + capStray;
+		
+		console.log("Query string is; " + query_string);
+		
 		// Specify the data source URL.
 
 		$.get(query_string, function(data) {
@@ -50,8 +53,7 @@ function init() {
 			var error_query = new google.visualization.Query("GetErrorData");
 			error_query.send(errorQueryResponse);
 			
-			var fr_query = new google.visualization.Query("GetFrequencyData");
-			fr_query.send(frequencyQueryResponse);
+
 		});
 
 	});
@@ -81,6 +83,9 @@ function errorQueryResponse(response) {
 	var oscCart = new google.visualization.LineChart(document
 			.getElementById('error_chart_div'));
 	oscCart.draw(data, options);
+	
+	var fr_query = new google.visualization.Query("GetFrequencyData");
+	fr_query.send(frequencyQueryResponse);
 }
 
 //Handle the query response.
